@@ -2,22 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a608be37-9873-407c-aaf4-0543b36800d4" name="Default" comment="initial repository">
-      <change afterPath="$PROJECT_DIR$/../points2/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../points2/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../points2/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../points2/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../points2/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../points2/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../points2/points2.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../points2/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../points2/result/result.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../points2/src/main/java/com/zxl/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../points2/src/main/java/com/zxl/analyzer/Points2Analyzer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../points2/src/main/java/com/zxl/utils/Utils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../points2/src/test/java/com/zxl/AppTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../points2/src/main/java/com/zxl/utils/CommonParam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../points2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../points2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../points2/result/result.json" beforeDir="false" afterPath="$PROJECT_DIR$/../points2/result/result.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../points2/src/main/java/com/zxl/analyzer/Points2Analyzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../points2/src/main/java/com/zxl/analyzer/Points2Analyzer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../points2/src/main/java/com/zxl/utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/../points2/src/main/java/com/zxl/utils/Utils.java" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/../points2/out/" />
-    <ignored path="$PROJECT_DIR$/../points2/target/" />
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,7 +18,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../points2/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
@@ -36,11 +28,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Utils.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Utils.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../points2/src/main/java/com/zxl/utils/Utils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="40" column="17" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
+            <state relative-caret-position="263">
+              <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -48,22 +40,59 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="CommonParam.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../points2/src/main/java/com/zxl/utils/CommonParam.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="7" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Points2Analyzer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../points2/src/main/java/com/zxl/analyzer/Points2Analyzer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+            <state relative-caret-position="215">
+              <caret line="121" column="46" lean-forward="true" selection-start-line="121" selection-start-column="46" selection-end-line="121" selection-end-column="46" />
               <folding>
-                <element signature="docComment;method#initAllPoints2Map#0;class#Points2Analyzer#0" />
+                <element signature="imports" expanded="true" />
                 <element signature="method#initAllPoints2Map#0;class#Points2Analyzer#0" />
-                <element signature="method#analyseMethod#0;class#Points2Analyzer#0" />
                 <element signature="method#analyseConstructorCall#0;class#Points2Analyzer#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="relation.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../points2/result/relation.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="6" column="4" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="result.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../points2/result/result.json">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Enum" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>class:basic.Interprocedural1;field:</find>
+      <find>class:benchmark.objects.B</find>
+      <find>class:basic.Recursion1;field:</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../points2" />
@@ -71,10 +100,15 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../points2/pom.xml" />
-        <option value="$PROJECT_DIR$/../points2/src/test/java/com/zxl/AppTest.java" />
-        <option value="$PROJECT_DIR$/../points2/src/main/java/com/zxl/analyzer/Points2Analyzer.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/com/zxl/AppTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zxl/analyzer/Points2Analyzer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zxl/utils/Utils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zxl/analyzer/Points2Analyzer.java" />
+        <option value="$PROJECT_DIR$/../points2/src/main/java/com/zxl/utils/CommonParam.java" />
+        <option value="$PROJECT_DIR$/../points2/src/main/java/com/zxl/utils/RelationType.java" />
         <option value="$PROJECT_DIR$/../points2/src/main/java/com/zxl/utils/Utils.java" />
+        <option value="$PROJECT_DIR$/../points2/src/main/java/com/zxl/analyzer/Points2Analyzer.java" />
       </list>
     </option>
   </component>
@@ -99,7 +133,19 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="points2" type="58d84e3e:PackageViewProjectNode" />
+              <item name="points2" type="616d4139:PackageViewModuleNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -112,34 +158,58 @@
               <item name="points2" type="462c0819:PsiDirectoryNode" />
               <item name="result" type="462c0819:PsiDirectoryNode" />
             </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
             <path>
-              <item name="points2" type="58d84e3e:PackageViewProjectNode" />
-              <item name="points2" type="616d4139:PackageViewModuleNode" />
+              <item name="points2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="points2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="points2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="points2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="points2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="points2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="points2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="points2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="zxl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="points2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="points2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="zxl" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/points2/src/main/java/com/zxl/utils/RelationType.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../points2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -163,7 +233,7 @@
     <configuration name="Points2Analyzer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.zxl.analyzer.Points2Analyzer" />
       <module name="points2" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/../points2" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.zxl.analyzer.*" />
@@ -276,6 +346,11 @@
       <option name="presentableId" value="Default" />
       <updated>1540175484283</updated>
       <workItem from="1540175490448" duration="2258000" />
+      <workItem from="1540209486665" duration="99000" />
+      <workItem from="1540209602335" duration="3274000" />
+      <workItem from="1540533446519" duration="590000" />
+      <workItem from="1540607850755" duration="57000" />
+      <workItem from="1540607925164" duration="19354000" />
     </task>
     <servers />
   </component>
@@ -291,39 +366,40 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2258000" />
+    <option name="totallyTimeSpent" value="25632000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info active="true" anchor="bottom" id="Messages" visible="true" weight="0.3286026" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info id="Image Layers" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="right" id="Maven Projects" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3293348" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info id="Capture Tool" />
-      <window_info id="Designer" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
-      <window_info anchor="right" id="Database" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.3286026" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info id="Image Layers" order="2" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5005208" side_tool="true" visible="true" weight="0.32969433" />
+      <window_info anchor="right" id="Maven Projects" order="3" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49947917" visible="true" weight="0.32969433" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.496875" weight="0.3286026" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="2" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="UI Designer" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info id="UI Designer" order="2" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49739584" weight="0.3995633" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -338,14 +414,44 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/../points2/src/main/java/com/zxl/analyzer/Points2Analyzer.java</url>
+          <line>169</line>
+          <properties />
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="8" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../points2/src/main/java/com/zxl/App.java">
+    <entry file="file://$PROJECT_DIR$/../points2/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="6" column="17" lean-forward="true" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        <state relative-caret-position="1825">
+          <caret line="73" column="16" selection-start-line="73" selection-start-column="16" selection-end-line="73" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../points2/src/main/java/com/zxl/utils/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="775">
+          <caret line="31" column="35" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../points2/src/main/java/com/zxl/analyzer/Points2Analyzer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#initAllPoints2Map#0;class#Points2Analyzer#0" />
+            <element signature="method#analyseConstructorCall#0;class#Points2Analyzer#0" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -356,19 +462,87 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../points2/result/result.json">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/../points2/src/main/java/com/zxl/utils/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="775">
+          <caret line="31" column="35" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../points2/src/main/java/com/zxl/analyzer/Points2Analyzer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
+        <state relative-caret-position="600">
+          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../points2/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1825">
+          <caret line="73" column="16" selection-start-line="73" selection-start-column="16" selection-end-line="73" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../points2/src/main/java/com/zxl/utils/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="775">
+          <caret line="31" column="35" lean-forward="true" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../points2/src/main/java/com/zxl/analyzer/Points2Analyzer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="24" column="9" lean-forward="true" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../points2/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1825">
+          <caret line="73" column="16" selection-start-line="73" selection-start-column="16" selection-end-line="73" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../points2/src/main/java/com/zxl/analyzer/Points2Analyzer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../points2/src/main/java/com/zxl/utils/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="40" column="17" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../points2/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1825">
+          <caret line="73" column="16" selection-start-line="73" selection-start-column="16" selection-end-line="73" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../points2/src/main/java/com/zxl/analyzer/Points2Analyzer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
           <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-          <folding>
-            <element signature="docComment;method#initAllPoints2Map#0;class#Points2Analyzer#0" />
-            <element signature="method#initAllPoints2Map#0;class#Points2Analyzer#0" />
-            <element signature="method#analyseMethod#0;class#Points2Analyzer#0" />
-            <element signature="method#analyseConstructorCall#0;class#Points2Analyzer#0" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../points2/src/main/java/com/zxl/utils/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="40" column="17" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../points2/src/main/java/com/zxl/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="6" column="17" lean-forward="true" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -376,20 +550,95 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
-          <folding>
-            <element signature="e#241#242#0" expanded="true" />
-            <element signature="e#275#276#0" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../points2/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../points2/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1825">
+          <caret line="73" column="16" selection-start-line="73" selection-start-column="16" selection-end-line="73" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/fr/inria/gforge/spoon/spoon-core/7.0.0/spoon-core-7.0.0-sources.jar!/spoon/reflect/code/CtVariableRead.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="32" column="17" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/fr/inria/gforge/spoon/spoon-core/7.0.0/spoon-core-7.0.0-sources.jar!/spoon/reflect/code/CtFieldRead.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="34" column="13" lean-forward="true" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/fr/inria/gforge/spoon/spoon-core/7.0.0/spoon-core-7.0.0-sources.jar!/spoon/reflect/code/CtFieldAccess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../points2/src/main/java/com/zxl/utils/RelationType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/fr/inria/gforge/spoon/spoon-core/7.0.0/spoon-core-7.0.0-sources.jar!/spoon/reflect/reference/CtFieldReference.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="31" column="17" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../points2/result/result.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../points2/src/main/java/com/zxl/utils/CommonParam.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="7" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../points2/src/main/java/com/zxl/utils/Utils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="40" column="17" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
+        <state relative-caret-position="263">
+          <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../points2/src/main/java/com/zxl/analyzer/Points2Analyzer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="121" column="46" lean-forward="true" selection-start-line="121" selection-start-column="46" selection-end-line="121" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#initAllPoints2Map#0;class#Points2Analyzer#0" />
+            <element signature="method#analyseConstructorCall#0;class#Points2Analyzer#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../points2/result/relation.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="6" column="4" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
         </state>
       </provider>
     </entry>
