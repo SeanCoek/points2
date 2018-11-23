@@ -1,107 +1,83 @@
 {
-  "class:basic.Interprocedural1;field:y;": [
-    "class:benchmark.objects.B;field:f;"
+  "cornerCases.FieldSensitivity2:method:test():d": [
+    "benchmark.objects.A:field:f"
   ],
-  "class:cornerCases.StrongUpdate2;field:b;": [
-    "class:benchmark.objects.A;field:a;"
+  "cornerCases.StrongUpdate1:method:main(java.lang.String[]):x": [
+    "benchmark.objects.A:field:f"
   ],
-  "class:basic.Recursion1;field:p;": [
-    "class:basic.Recursion1$N;field:next;"
+  "cornerCases.StrongUpdate1:method:main(java.lang.String[]):y": [
+    "benchmark.objects.A:field:f"
   ],
-  "class:basic.Interprocedural2;field:x;": [
-    "class:benchmark.objects.B;field:f;"
+  "generalJava.StaticVariables1:method:main(java.lang.String[]):b": [
+    "generalJava.StaticVariables1:field:a"
   ],
-  "class:basic.Loops1;field:o;": [
-    "class:basic.Loops1$N;field:next;"
+  "basic.Recursion1:method:test():q": [
+    "basic.Recursion1$N:field:next"
   ],
-  "class:generalJava.StaticVariables1;field:c;": [
-    "class:benchmark.objects.A;field:a;"
+  "generalJava.StaticVariables1:method:main(java.lang.String[]):c": [
+    "generalJava.StaticVariables1:field:a"
   ],
-  "class:basic.Loops1;field:q;": [
-    "class:basic.Loops1$N;field:next;"
+  "basic.Recursion1:method:test():p": [
+    "basic.Recursion1$N:field:next"
   ],
-  "class:cornerCases.StrongUpdate2;field:y;": [
-    "class:benchmark.objects.B;field:f;"
+  "basic.Recursion1:method:test():o": [
+    "basic.Recursion1$N:field:next"
   ],
-  "class:basic.Loops2;field:p;": [
-    "class:basic.Loops2$N;field:next;"
+  "generalJava.OuterClass1:method:test():h": [
+    "generalJava.OuterClass1$InnerClass:field:a"
   ],
-  "class:cornerCases.StrongUpdate1;field:b;": [
-    "class:benchmark.objects.A;field:a;"
+  "basic.Loops1:method:test():q": [
+    "basic.Loops1$N:field:next"
   ],
-  "class:basic.SimpleAlias1;field:b;": [
-    "class:benchmark.objects.A;field:a;"
+  "basic.Loops1:method:test():p": [
+    "basic.Loops1$N:field:next"
   ],
-  "class:generalJava.Null2;field:b;": [
-    "class:benchmark.objects.A;field:a;"
+  "generalJava.Null2:method:main(java.lang.String[]):x": [
+    "benchmark.objects.A:field:h"
   ],
-  "class:basic.ReturnValue3;field:x;": [
-    "class:benchmark.objects.B;field:f;"
+  "benchmark.objects.A:field:f": [
+    "benchmark.objects.A:field:f"
   ],
-  "class:cornerCases.StrongUpdate1;field:y;": [
-    "class:benchmark.objects.B;field:f;"
+  "basic.Loops1:method:test():o": [
+    "basic.Loops1$N:field:next"
   ],
-  "class:cornerCases.ContextSensitivity2;field:b1;": [
-    "class:benchmark.objects.A;field:a1;"
+  "basic.Parameter2:method:test(benchmark.objects.A):b": [
+    "basic.Parameter2:method:test(benchmark.objects.A):x"
   ],
-  "class:cornerCases.FieldSensitivity1;field:d;": [
-    "class:benchmark.objects.B;field:f;"
+  "cornerCases.FieldSensitivity1:method:main(java.lang.String[]):d": [
+    "benchmark.objects.A:field:f"
   ],
-  "class:basic.Parameter2;field:b;": [
-    "class:benchmark.objects.A;field:x;"
+  "basic.Interprocedural1:method:main(java.lang.String[]):x": [
+    "benchmark.objects.A:field:f"
   ],
-  "class:generalJava.OuterClass1;field:h;": [
-    "class:benchmark.objects.A;field:a;"
+  "basic.Interprocedural1:method:main(java.lang.String[]):y": [
+    "benchmark.objects.A:field:f"
   ],
-  "class:generalJava.Null1;field:b;": [
-    "class:benchmark.objects.B;field:a;"
+  "cornerCases.StrongUpdate2:method:main(java.lang.String[]):y": [
+    "benchmark.objects.A:field:f"
   ],
-  "class:generalJava.Null2;field:x;": [
-    "class:benchmark.objects.B;field:h;"
+  "cornerCases.StrongUpdate2:method:main(java.lang.String[]):x": [
+    "benchmark.objects.A:field:f"
   ],
-  "class:benchmark.objects.A;field:f;": [
-    "class:benchmark.objects.A;field:f;"
+  "basic.Interprocedural2:method:main(java.lang.String[]):x": [
+    "benchmark.objects.A:field:f"
   ],
-  "class:basic.Interprocedural1;field:x;": [
-    "class:benchmark.objects.B;field:f;"
+  "basic.Interprocedural2:method:main(java.lang.String[]):y": [
+    "benchmark.objects.A:field:f"
   ],
-  "class:basic.Recursion1;field:o;": [
-    "class:basic.Recursion1$N;field:next;"
+  "basic.Parameter1:method:test(benchmark.objects.A):b": [
+    "basic.Parameter1:method:test(benchmark.objects.A):x"
   ],
-  "class:cornerCases.ContextSensitivity3;field:b1;": [
-    "class:benchmark.objects.A;field:a1;"
+  "basic.Loops2:method:test():o": [
+    "basic.Loops2$N:field:next"
   ],
-  "class:basic.Recursion1;field:q;": [
-    "class:basic.Recursion1$N;field:next;"
+  "basic.Loops2:method:test():p": [
+    "basic.Loops2$N:field:next"
   ],
-  "class:basic.Interprocedural2;field:y;": [
-    "class:benchmark.objects.B;field:f;"
+  "basic.ReturnValue3:method:main(java.lang.String[]):x": [
+    "benchmark.objects.A:field:f"
   ],
-  "class:basic.Loops1;field:p;": [
-    "class:basic.Loops1$N;field:next;"
-  ],
-  "class:generalJava.StaticVariables1;field:b;": [
-    "class:benchmark.objects.A;field:a;"
-  ],
-  "class:cornerCases.StrongUpdate2;field:x;": [
-    "class:benchmark.objects.B;field:f;"
-  ],
-  "class:basic.Loops2;field:o;": [
-    "class:basic.Loops2$N;field:next;"
-  ],
-  "class:basic.Parameter1;field:b;": [
-    "class:benchmark.objects.A;field:x;"
-  ],
-  "class:basic.ReturnValue3;field:y;": [
-    "class:benchmark.objects.B;field:f;"
-  ],
-  "class:cornerCases.FieldSensitivity2;field:d;": [
-    "class:benchmark.objects.B;field:f;"
-  ],
-  "class:cornerCases.StrongUpdate1;field:x;": [
-    "class:benchmark.objects.B;field:f;"
-  ],
-  "class:cornerCases.ContextSensitivity1;field:b1;": [
-    "class:benchmark.objects.A;field:a1;"
+  "basic.ReturnValue3:method:main(java.lang.String[]):y": [
+    "benchmark.objects.A:field:f"
   ]
 }

@@ -5,22 +5,23 @@ import com.google.gson.GsonBuilder;
 import com.zxl.utils.CommonParam.RelationType;
 import spoon.Launcher;
 import spoon.reflect.CtModel;
+import spoon.reflect.code.CtExpression;
+import spoon.reflect.code.CtFieldAccess;
+import spoon.reflect.code.CtTargetedExpression;
 import spoon.reflect.declaration.CtMethod;
+import spoon.reflect.reference.CtExecutableReference;
 import spoon.reflect.reference.CtFieldReference;
+import spoon.reflect.reference.CtTypeReference;
 import spoon.reflect.reference.CtVariableReference;
 
 import javax.management.relation.Relation;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
+import java.io.*;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import static com.zxl.analyzer.Points2Analyzer.KEY_FIELD;
-import static com.zxl.analyzer.Points2Analyzer.KEY_METHOD;
-import static com.zxl.analyzer.Points2Analyzer.KEY_STATIC;
+import static com.zxl.analyzer.Points2Analyzer.*;
 
 
 public class Utils {
@@ -53,16 +54,17 @@ public class Utils {
             writer.close();
             System.out.println("\n\nRESULT:");
             System.out.println(gson.toJson(allClassPoints2));
-            System.out.println("store in file \"result.json\"");
+            System.out.println("store in file " + resultPath);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public static Set getFieldSites(Map<String, Map> allPoints2Map, CtFieldReference fieldVarRef) {
-        String targetClassName = fieldVarRef.getDeclaringType().getQualifiedName();
-        String targetFieldName = fieldVarRef.isStatic()? KEY_STATIC + ":" + fieldVarRef.getSimpleName() : fieldVarRef.getSimpleName();
+    public static Set getFieldSites(Map<String, Map> allPoints2Map, CtFieldAccess fieldAccess) {
+        CtFieldReference fieldRef = fieldAccess.getVariable();
 
+        String targetClassName = fieldRef.getDeclaringType().getQualifiedName();
+        String targetFieldName = fieldRef.getSimpleName();
         Set targetLocationSites = ((Map<String, Set>)((Map)(allPoints2Map.get(targetClassName)).get(KEY_FIELD))).get(targetFieldName);
         return targetLocationSites;
     }
@@ -75,6 +77,13 @@ public class Utils {
         String methodName = m.getSignature();
         return (Set) ((Map<String, Map>) ((Map) (allPoints2Map.get(className)).get(KEY_METHOD))).get(methodName).get(var.getSimpleName());
 
+    }
+
+    public static Set getMethodReturn(Map<String, Map> allPoints2Map, CtExecutableReference exec) {
+        String className = exec.getDeclaringType().getQualifiedName();
+        String methodName = exec.getSignature();
+
+        return (Set) ((Map<String, Map>) ((Map) (allPoints2Map.get(className)).get(KEY_METHOD))).get(methodName).get(KEY_RETURN);
     }
 
     public static void addRelation(Map<String,Set> relationMap, String[] relationNodes) {
@@ -90,22 +99,73 @@ public class Utils {
         String[] relationNodes = new String[2];
         switch (relationType) {
             case F2F:
-                relationNodes[0] = "class:" + relationleft[0] + ";" + "field:" + relationleft[1] + ";";
-                relationNodes[1] = "class:" + relationRight[0] + ";" + "field:" + relationRight[1] + ";";
+                relationNodes[0] = relationleft[0] + ":" + "field:" + relationleft[1];
+                relationNodes[1] = relationRight[0] + ":" + "field:" + relationRight[1];
                 break;
             case F2M:
-                relationNodes[0] = "class:" + relationleft[0] + ";" + "field:" + relationleft[1] + ";";
-                relationNodes[1] = "class:" + relationRight[0] + ";" + "method:" + relationRight[1] + ":" + relationRight[2] + ";";
+                relationNodes[0] = relationleft[0] + ":" + "field:" + relationleft[1];
+                relationNodes[1] = relationRight[0] + ":" + "method:" + relationRight[1] + ":" + relationRight[2];
                 break;
             case M2F:
-                relationNodes[0] = "class:" + relationleft[0] + ";" + "method:" + relationleft[1] + ":" + relationleft[2] + ";";
-                relationNodes[1] = "class:" + relationRight[0] + ";" + "field:" + relationRight[1] + ";";
+                relationNodes[0] = relationleft[0] + ":" + "method:" + relationleft[1] + ":" + relationleft[2];
+                relationNodes[1] = relationRight[0] + ":" + "field:" + relationRight[1];
                 break;
             case M2M:
-                relationNodes[0] = "class:" + relationleft[0] + ";" + "method:" + relationleft[1] + ":" + relationleft[2] + ";";
-                relationNodes[1] = "class:" + relationRight[0] + ";" + "method:" + relationRight[1] + ":" + relationRight[2] + ";";
+                relationNodes[0] = relationleft[0] + ":" + "method:" + relationleft[1] + ":" + relationleft[2];
+                relationNodes[1] = relationRight[0] + ":" + "method:" + relationRight[1] + ":" + relationRight[2];
                 break;
         }
         return relationNodes;
+    }
+
+    public static boolean dealRelation(Map<String, Map> allPoint2Map, String relationLeft, String relationRight) {
+        String[] relationLeftArray = relationLeft.split(":");
+        Set leftSet = null;
+        if(relationLeftArray[1].equals(KEY_FIELD)) {
+            leftSet = (Set) ((Map)((allPoint2Map.get(relationLeftArray[0])).get(KEY_FIELD))).get(relationLeftArray[2]);
+        } else {
+            leftSet = (Set) ((Map)((Map)((allPoint2Map.get(relationLeftArray[0])).get(KEY_METHOD))).get(relationLeftArray[2])).get(relationLeftArray[3]);
+        }
+
+        String[] relationRightArray = relationRight.split(":");
+        Set rightSet = null;
+        if(relationRightArray[1].equals(KEY_FIELD)) {
+            rightSet = (Set) ((Map)((allPoint2Map.get(relationRightArray[0])).get(KEY_FIELD))).get(relationRightArray[2]);
+        } else {
+            rightSet = (Set) ((Map)((Map)((allPoint2Map.get(relationRightArray[0])).get(KEY_METHOD))).get(relationRightArray[2])).get(relationRightArray[3]);
+        }
+
+        if(leftSet.containsAll(rightSet)) {
+            return false;
+        } else {
+            leftSet.addAll(rightSet);
+            return true;
+        }
+    }
+
+    public static void resolveRelation(Map<String, Map> allPoints2Map) {
+        File jsonFile = new File("D:\\points2\\result\\relation.json");
+        Map<String, ArrayList> gson = null;
+        try {
+            Reader jsonReader = new FileReader(jsonFile);
+            gson = new Gson().fromJson(jsonReader,Map.class);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+//        System.out.println(gson);
+        boolean changingFlag;
+        do{
+            changingFlag = false;
+            // repeat scanning the relation util the points-to set stop changing.
+            for(String relationLeft : gson.keySet()) {
+                ArrayList<String> relationRightSet = gson.get(relationLeft);
+                for(String relationRight : relationRightSet) {
+                    if(dealRelation(allPoints2Map, relationLeft, relationRight)){
+                        changingFlag = true;
+                    }
+                }
+            }
+
+        } while(changingFlag);
     }
 }

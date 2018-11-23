@@ -3,9 +3,7 @@
     "field": {},
     "method": {
       "main(java.lang.String[])": {
-        "args": [
-          "collections.Array1:18(args)"
-        ],
+        "args": [],
         "a": [
           "collections.Array1:21"
         ],
@@ -33,18 +31,12 @@
     "field": {},
     "method": {
       "test(benchmark.objects.A)": {
-        "b": [
-          "basic.Parameter1:18(x)"
-        ],
-        "x": [
-          "basic.Parameter1:18(x)"
-        ],
+        "b": [],
+        "x": [],
         "return": []
       },
       "main(java.lang.String[])": {
-        "args": [
-          "basic.Parameter1:24(args)"
-        ],
+        "args": [],
         "a": [
           "basic.Parameter1:27"
         ],
@@ -58,9 +50,7 @@
     },
     "method": {
       "alias(benchmark.objects.A)": {
-        "x": [
-          "benchmark.objects.Q:12(x)"
-        ],
+        "x": [],
         "return": []
       },
       "getA()": {
@@ -72,18 +62,12 @@
     "field": {},
     "method": {
       "test(benchmark.objects.A)": {
-        "b": [
-          "basic.Parameter2:20(x)"
-        ],
-        "x": [
-          "basic.Parameter2:20(x)"
-        ],
+        "b": [],
+        "x": [],
         "return": []
       },
       "main(java.lang.String[])": {
-        "args": [
-          "basic.Parameter2:26(args)"
-        ],
+        "args": [],
         "a": [
           "basic.Parameter2:29"
         ],
@@ -98,20 +82,21 @@
     "field": {},
     "method": {
       "main(java.lang.String[])": {
-        "args": [
-          "cornerCases.StrongUpdate2:19(args)"
-        ],
+        "args": [],
         "a": [
           "cornerCases.StrongUpdate2:21"
         ],
         "b": [],
         "x": [
+          "benchmark.objects.A:9",
           "basic.Interprocedural2:31",
           "cornerCases.StrongUpdate1:24",
+          "cornerCases.StrongUpdate2:25",
           "basic.Interprocedural1:29",
           "basic.ReturnValue3:22"
         ],
         "y": [
+          "benchmark.objects.A:9",
           "basic.Interprocedural2:31",
           "cornerCases.StrongUpdate1:24",
           "cornerCases.StrongUpdate2:25",
@@ -139,9 +124,7 @@
         "o": []
       },
       "main(java.lang.String[])": {
-        "args": [
-          "basic.Loops1:45(args)"
-        ],
+        "args": [],
         "l1": [
           "basic.Loops1:46"
         ],
@@ -153,22 +136,24 @@
     "field": {},
     "method": {
       "main(java.lang.String[])": {
-        "args": [
-          "cornerCases.StrongUpdate1:19(args)"
-        ],
+        "args": [],
         "a": [
           "cornerCases.StrongUpdate1:21"
         ],
         "b": [],
         "x": [
+          "benchmark.objects.A:9",
           "basic.Interprocedural2:31",
           "cornerCases.StrongUpdate1:24",
+          "cornerCases.StrongUpdate2:25",
           "basic.Interprocedural1:29",
           "basic.ReturnValue3:22"
         ],
         "y": [
+          "benchmark.objects.A:9",
           "basic.Interprocedural2:31",
           "cornerCases.StrongUpdate1:24",
+          "cornerCases.StrongUpdate2:25",
           "basic.Interprocedural1:29",
           "basic.ReturnValue3:22"
         ],
@@ -192,9 +177,7 @@
         "o": []
       },
       "main(java.lang.String[])": {
-        "args": [
-          "basic.Loops2:44(args)"
-        ],
+        "args": [],
         "l1": [
           "basic.Loops2:45"
         ],
@@ -206,9 +189,7 @@
     "field": {},
     "method": {
       "main(java.lang.String[])": {
-        "args": [
-          "cornerCases.AccessPath1:18(args)"
-        ],
+        "args": [],
         "a": [
           "cornerCases.AccessPath1:21"
         ],
@@ -223,18 +204,12 @@
     "field": {},
     "method": {
       "assign(benchmark.objects.A,benchmark.objects.A)": {
-        "x": [
-          "cornerCases.FieldSensitivity1:19(x)"
-        ],
-        "y": [
-          "cornerCases.FieldSensitivity1:19(y)"
-        ],
+        "x": [],
+        "y": [],
         "return": []
       },
       "main(java.lang.String[])": {
-        "args": [
-          "cornerCases.FieldSensitivity1:23(args)"
-        ],
+        "args": [],
         "a": [
           "cornerCases.FieldSensitivity1:27"
         ],
@@ -245,7 +220,10 @@
           "cornerCases.FieldSensitivity1:28"
         ],
         "d": [
+          "benchmark.objects.A:9",
           "basic.Interprocedural2:31",
+          "cornerCases.StrongUpdate1:24",
+          "cornerCases.StrongUpdate2:25",
           "basic.Interprocedural1:29",
           "basic.ReturnValue3:22"
         ],
@@ -264,12 +242,8 @@
     "field": {},
     "method": {
       "assign(benchmark.objects.A,benchmark.objects.A)": {
-        "x": [
-          "cornerCases.FieldSensitivity2:21(x)"
-        ],
-        "y": [
-          "cornerCases.FieldSensitivity2:21(y)"
-        ],
+        "x": [],
+        "y": [],
         "return": []
       },
       "test()": {
@@ -283,16 +257,17 @@
           "cornerCases.FieldSensitivity2:29"
         ],
         "d": [
+          "benchmark.objects.A:9",
           "basic.Interprocedural2:31",
+          "cornerCases.StrongUpdate1:24",
+          "cornerCases.StrongUpdate2:25",
           "basic.Interprocedural1:29",
           "basic.ReturnValue3:22"
         ],
         "return": []
       },
       "main(java.lang.String[])": {
-        "args": [
-          "cornerCases.FieldSensitivity2:37(args)"
-        ],
+        "args": [],
         "fs2": [
           "cornerCases.FieldSensitivity2:39"
         ],
@@ -304,9 +279,7 @@
     "field": {},
     "method": {
       "main(java.lang.String[])": {
-        "args": [
-          "collections.Map1:20(args)"
-        ],
+        "args": [],
         "a": [
           "collections.Map1:23"
         ],
@@ -326,23 +299,15 @@
     "method": {
       "use(java.lang.Object)": {
         "return": [],
-        "o": [
-          "benchmark.internal.Benchmark:14(o)"
-        ]
+        "o": []
       },
       "test(java.lang.String,java.lang.String)": {
-        "targetVariable": [
-          "benchmark.internal.Benchmark:10(targetVariable)"
-        ],
-        "results": [
-          "benchmark.internal.Benchmark:10(results)"
-        ],
+        "targetVariable": [],
+        "results": [],
         "return": []
       },
       "alloc(int)": {
-        "id": [
-          "benchmark.internal.Benchmark:6(id)"
-        ],
+        "id": [],
         "return": []
       }
     }
@@ -351,9 +316,7 @@
     "field": {},
     "method": {
       "main(java.lang.String[])": {
-        "args": [
-          "basic.SimpleAlias1:18(args)"
-        ],
+        "args": [],
         "a": [
           "basic.SimpleAlias1:21"
         ],
@@ -368,9 +331,7 @@
     },
     "method": {
       "alias(benchmark.objects.A)": {
-        "x": [
-          "generalJava.OuterClass1:27(x)"
-        ],
+        "x": [],
         "return": []
       },
       "test()": {
@@ -387,9 +348,7 @@
         "return": []
       },
       "main(java.lang.String[])": {
-        "args": [
-          "generalJava.OuterClass1:44(args)"
-        ],
+        "args": [],
         "oc1": [
           "generalJava.OuterClass1:45"
         ],
@@ -415,9 +374,7 @@
     "field": {},
     "method": {
       "main(java.lang.String[])": {
-        "args": [
-          "generalJava.Exception1:18(args)"
-        ],
+        "args": [],
         "a": [
           "generalJava.Exception1:21"
         ],
@@ -432,9 +389,7 @@
     "field": {},
     "method": {
       "main(java.lang.String[])": {
-        "args": [
-          "generalJava.Exception2:18(args)"
-        ],
+        "args": [],
         "a": [
           "generalJava.Exception2:20"
         ],
@@ -449,9 +404,7 @@
     "field": {},
     "method": {
       "main(java.lang.String[])": {
-        "args": [
-          "basic.Interprocedural2:25(args)"
-        ],
+        "args": [],
         "a": [
           "basic.Interprocedural2:27"
         ],
@@ -462,22 +415,26 @@
           "basic.Interprocedural2:32"
         ],
         "x": [
+          "benchmark.objects.A:9",
           "basic.Interprocedural2:31",
-          "basic.Interprocedural1:29"
+          "cornerCases.StrongUpdate1:24",
+          "cornerCases.StrongUpdate2:25",
+          "basic.Interprocedural1:29",
+          "basic.ReturnValue3:22"
         ],
         "y": [
+          "benchmark.objects.A:9",
           "basic.Interprocedural2:31",
-          "basic.Interprocedural1:29"
+          "cornerCases.StrongUpdate1:24",
+          "cornerCases.StrongUpdate2:25",
+          "basic.Interprocedural1:29",
+          "basic.ReturnValue3:22"
         ],
         "return": []
       },
       "alloc(benchmark.objects.A,benchmark.objects.A)": {
-        "x": [
-          "basic.Interprocedural2:21(x)"
-        ],
-        "y": [
-          "basic.Interprocedural2:21(y)"
-        ],
+        "x": [],
+        "y": [],
         "return": []
       }
     }
@@ -486,9 +443,7 @@
     "field": {},
     "method": {
       "main(java.lang.String[])": {
-        "args": [
-          "basic.Interprocedural1:23(args)"
-        ],
+        "args": [],
         "a": [
           "basic.Interprocedural1:25"
         ],
@@ -496,20 +451,26 @@
           "basic.Interprocedural1:26"
         ],
         "x": [
-          "basic.Interprocedural1:29"
+          "benchmark.objects.A:9",
+          "basic.Interprocedural2:31",
+          "cornerCases.StrongUpdate1:24",
+          "cornerCases.StrongUpdate2:25",
+          "basic.Interprocedural1:29",
+          "basic.ReturnValue3:22"
         ],
         "y": [
-          "basic.Interprocedural1:29"
+          "benchmark.objects.A:9",
+          "basic.Interprocedural2:31",
+          "cornerCases.StrongUpdate1:24",
+          "cornerCases.StrongUpdate2:25",
+          "basic.Interprocedural1:29",
+          "basic.ReturnValue3:22"
         ],
         "return": []
       },
       "alloc(benchmark.objects.A,benchmark.objects.A)": {
-        "x": [
-          "basic.Interprocedural1:19(x)"
-        ],
-        "y": [
-          "basic.Interprocedural1:19(y)"
-        ],
+        "x": [],
+        "y": [],
         "return": []
       }
     }
@@ -518,9 +479,7 @@
     "field": {},
     "method": {
       "main(java.lang.String[])": {
-        "args": [
-          "cornerCases.ObjectSensitivity2:19(args)"
-        ],
+        "args": [],
         "b2": [
           "cornerCases.ObjectSensitivity2:23"
         ],
@@ -540,9 +499,7 @@
     "field": {},
     "method": {
       "main(java.lang.String[])": {
-        "args": [
-          "generalJava.Null2:17(args)"
-        ],
+        "args": [],
         "a": [
           "generalJava.Null2:20"
         ],
@@ -556,9 +513,7 @@
     "field": {},
     "method": {
       "main(java.lang.String[])": {
-        "args": [
-          "cornerCases.ObjectSensitivity1:19(args)"
-        ],
+        "args": [],
         "b2": [
           "cornerCases.ObjectSensitivity1:23"
         ],
@@ -581,9 +536,7 @@
     "field": {},
     "method": {
       "main(java.lang.String[])": {
-        "args": [
-          "generalJava.Null1:19(args)"
-        ],
+        "args": [],
         "a": [],
         "b": [],
         "h": [
@@ -599,9 +552,7 @@
     },
     "method": {
       "alias(benchmark.objects.A)": {
-        "x": [
-          "generalJava.OuterClass1$InnerClass:27(x)"
-        ],
+        "x": [],
         "return": []
       }
     }
@@ -610,17 +561,11 @@
     "field": {},
     "method": {
       "id(benchmark.objects.A)": {
-        "x": [
-          "basic.ReturnValue1:18(x)"
-        ],
-        "return": [
-          "basic.ReturnValue1:18(x)"
-        ]
+        "x": [],
+        "return": []
       },
       "main(java.lang.String[])": {
-        "args": [
-          "basic.ReturnValue1:22(args)"
-        ],
+        "args": [],
         "a": [
           "basic.ReturnValue1:25"
         ],
@@ -633,9 +578,7 @@
     "field": {},
     "method": {
       "main(java.lang.String[])": {
-        "args": [
-          "collections.Set1:20(args)"
-        ],
+        "args": [],
         "a": [
           "collections.Set1:23"
         ],
@@ -654,9 +597,7 @@
     "field": {},
     "method": {
       "main(java.lang.String[])": {
-        "args": [
-          "generalJava.Interface1:20(args)"
-        ],
+        "args": [],
         "a": [
           "generalJava.Interface1:22"
         ],
@@ -694,20 +635,12 @@
         "o": []
       },
       "recursive(int,basic.Recursion1$N)": {
-        "i": [
-          "basic.Recursion1:29(i)"
-        ],
-        "m": [
-          "basic.Recursion1:29(m)"
-        ],
-        "return": [
-          "basic.Recursion1:29(m)"
-        ]
+        "i": [],
+        "m": [],
+        "return": []
       },
       "main(java.lang.String[])": {
-        "args": [
-          "basic.Recursion1:52(args)"
-        ],
+        "args": [],
         "return": [],
         "r1": [
           "basic.Recursion1:53"
@@ -719,17 +652,11 @@
     "field": {},
     "method": {
       "id(benchmark.objects.A)": {
-        "x": [
-          "basic.ReturnValue2:20(x)"
-        ],
-        "return": [
-          "basic.ReturnValue2:20(x)"
-        ]
+        "x": [],
+        "return": []
       },
       "main(java.lang.String[])": {
-        "args": [
-          "basic.ReturnValue2:24(args)"
-        ],
+        "args": [],
         "a": [
           "basic.ReturnValue2:27"
         ],
@@ -743,15 +670,13 @@
   },
   "generalJava.StaticVariables1": {
     "field": {
-      "static:a": [
+      "a": [
         "generalJava.StaticVariables1:22"
       ]
     },
     "method": {
       "main(java.lang.String[])": {
-        "args": [
-          "generalJava.StaticVariables1:20(args)"
-        ],
+        "args": [],
         "b": [
           "generalJava.StaticVariables1:22"
         ],
@@ -766,9 +691,7 @@
     "field": {},
     "method": {
       "id(benchmark.objects.A)": {
-        "x": [
-          "basic.ReturnValue3:19(x)"
-        ],
+        "x": [],
         "y": [
           "basic.ReturnValue3:20"
         ],
@@ -777,20 +700,24 @@
         ]
       },
       "main(java.lang.String[])": {
-        "args": [
-          "basic.ReturnValue3:26(args)"
-        ],
+        "args": [],
         "a": [
           "basic.ReturnValue3:28"
         ],
         "b": [],
         "x": [
+          "benchmark.objects.A:9",
           "basic.Interprocedural2:31",
+          "cornerCases.StrongUpdate1:24",
+          "cornerCases.StrongUpdate2:25",
           "basic.Interprocedural1:29",
           "basic.ReturnValue3:22"
         ],
         "y": [
+          "benchmark.objects.A:9",
           "basic.Interprocedural2:31",
+          "cornerCases.StrongUpdate1:24",
+          "cornerCases.StrongUpdate2:25",
           "basic.Interprocedural1:29",
           "basic.ReturnValue3:22"
         ],
@@ -802,9 +729,7 @@
     "field": {},
     "method": {
       "main(java.lang.String[])": {
-        "args": [
-          "collections.List1:20(args)"
-        ],
+        "args": [],
         "a": [
           "collections.List1:23"
         ],
@@ -823,9 +748,7 @@
     "field": {},
     "method": {
       "main(java.lang.String[])": {
-        "args": [
-          "collections.List2:20(args)"
-        ],
+        "args": [],
         "a": [
           "collections.List2:23"
         ],
@@ -844,9 +767,7 @@
     "field": {},
     "method": {
       "main(java.lang.String[])": {
-        "args": [
-          "basic.Branching1:18(args)"
-        ],
+        "args": [],
         "a": [
           "basic.Branching1:22"
         ],
@@ -886,12 +807,8 @@
         "return": []
       },
       "id(benchmark.objects.B)": {
-        "b": [
-          "benchmark.objects.A:26(b)"
-        ],
-        "return": [
-          "benchmark.objects.A:26(b)"
-        ]
+        "b": [],
+        "return": []
       }
     }
   },
@@ -903,12 +820,8 @@
     "field": {},
     "method": {
       "test22(benchmark.objects.A,benchmark.objects.A)": {
-        "b2": [
-          "cornerCases.ContextSensitivity3:48(b2)"
-        ],
-        "a2": [
-          "cornerCases.ContextSensitivity3:48(a2)"
-        ],
+        "b2": [],
+        "a2": [],
         "return": []
       },
       "test1()": {
@@ -928,48 +841,30 @@
         "return": []
       },
       "test111(benchmark.objects.A,benchmark.objects.A)": {
-        "a1": [
-          "cornerCases.ContextSensitivity3:37(a1)"
-        ],
+        "a1": [],
         "return": [],
-        "b1": [
-          "cornerCases.ContextSensitivity3:37(b1)"
-        ]
+        "b1": []
       },
       "test11(benchmark.objects.A,benchmark.objects.A)": {
-        "a1": [
-          "cornerCases.ContextSensitivity3:33(a1)"
-        ],
+        "a1": [],
         "return": [],
-        "b1": [
-          "cornerCases.ContextSensitivity3:33(b1)"
-        ]
+        "b1": []
       },
       "test222(benchmark.objects.A,benchmark.objects.A)": {
-        "b2": [
-          "cornerCases.ContextSensitivity3:52(b2)"
-        ],
-        "a2": [
-          "cornerCases.ContextSensitivity3:52(a2)"
-        ],
+        "b2": [],
+        "a2": [],
         "return": []
       },
       "main(java.lang.String[])": {
-        "args": [
-          "cornerCases.ContextSensitivity3:56(args)"
-        ],
+        "args": [],
         "cs1": [
           "cornerCases.ContextSensitivity3:57"
         ],
         "return": []
       },
       "callee(benchmark.objects.A,benchmark.objects.A)": {
-        "a": [
-          "cornerCases.ContextSensitivity3:20(a)"
-        ],
-        "b": [
-          "cornerCases.ContextSensitivity3:20(b)"
-        ],
+        "a": [],
+        "b": [],
         "return": []
       }
     }
@@ -978,9 +873,7 @@
     "field": {},
     "method": {
       "main(java.lang.String[])": {
-        "args": [
-          "cornerCases.FlowSensitivity1:18(args)"
-        ],
+        "args": [],
         "a": [
           "cornerCases.FlowSensitivity1:20"
         ],
@@ -995,12 +888,8 @@
     "field": {},
     "method": {
       "test22(benchmark.objects.A,benchmark.objects.A)": {
-        "b2": [
-          "cornerCases.ContextSensitivity2:44(b2)"
-        ],
-        "a2": [
-          "cornerCases.ContextSensitivity2:44(a2)"
-        ],
+        "b2": [],
+        "a2": [],
         "return": []
       },
       "test1()": {
@@ -1020,30 +909,20 @@
         "return": []
       },
       "test11(benchmark.objects.A,benchmark.objects.A)": {
-        "a1": [
-          "cornerCases.ContextSensitivity2:33(a1)"
-        ],
+        "a1": [],
         "return": [],
-        "b1": [
-          "cornerCases.ContextSensitivity2:33(b1)"
-        ]
+        "b1": []
       },
       "main(java.lang.String[])": {
-        "args": [
-          "cornerCases.ContextSensitivity2:48(args)"
-        ],
+        "args": [],
         "cs1": [
           "cornerCases.ContextSensitivity2:49"
         ],
         "return": []
       },
       "callee(benchmark.objects.A,benchmark.objects.A)": {
-        "a": [
-          "cornerCases.ContextSensitivity2:20(a)"
-        ],
-        "b": [
-          "cornerCases.ContextSensitivity2:20(b)"
-        ],
+        "a": [],
+        "b": [],
         "return": []
       }
     }
@@ -1068,21 +947,15 @@
         "return": []
       },
       "main(java.lang.String[])": {
-        "args": [
-          "cornerCases.ContextSensitivity1:40(args)"
-        ],
+        "args": [],
         "cs1": [
           "cornerCases.ContextSensitivity1:41"
         ],
         "return": []
       },
       "callee(benchmark.objects.A,benchmark.objects.A)": {
-        "a": [
-          "cornerCases.ContextSensitivity1:20(a)"
-        ],
-        "b": [
-          "cornerCases.ContextSensitivity1:20(b)"
-        ],
+        "a": [],
+        "b": [],
         "return": []
       }
     }
@@ -1093,12 +966,8 @@
     },
     "method": {
       "foo(benchmark.objects.A)": {
-        "a": [
-          "benchmark.objects.G:8(a)"
-        ],
-        "return": [
-          "benchmark.objects.G:8(a)"
-        ]
+        "a": [],
+        "return": []
       }
     }
   },
@@ -1108,12 +977,8 @@
     },
     "method": {
       "foo(benchmark.objects.A)": {
-        "a": [
-          "benchmark.objects.H:8(a)"
-        ],
-        "return": [
-          "benchmark.objects.H:8(a)"
-        ]
+        "a": [],
+        "return": []
       }
     }
   },
@@ -1121,9 +986,7 @@
     "field": {},
     "method": {
       "main(java.lang.String[])": {
-        "args": [
-          "generalJava.SuperClasses1:19(args)"
-        ],
+        "args": [],
         "p": [
           "generalJava.SuperClasses1:24"
         ],

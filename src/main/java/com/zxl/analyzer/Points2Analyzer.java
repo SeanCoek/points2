@@ -25,18 +25,28 @@ public class Points2Analyzer {
         public static void main(String[] args) {
 
             Points2Analyzer analyzer = new Points2Analyzer();
-            analyzer.process("D:\\Code\\Java\\PointerBench\\src", "D:\\points2\\result\\result.json");
-
+//            analyzer.process("D:\\Code\\Java\\PointerBench\\src", null, null);
+//            analyzer.process("D:\\Code\\Java\\SpoonTest.java", "D:\\points2\\result\\result.json");
+//            analyzer.process("D:\\project\\JInfoFlow-bench\\src\\main\\java", null, null);
+            analyzer.process("D:\\Code\\Java\\PointerBench\\src", null, null);
         }
 
-        private void process(String targetPath, String resultPath) {
+        public Map process(String targetPath, String resultPath, String relationPath) {
+            if(resultPath == null) {
+                resultPath = "D:\\points2\\result\\result.json";
+            }
+            if(relationPath == null) {
+                relationPath = "D:\\points2\\result\\relation.json";
+            }
             CtModel model = Utils.getModel(targetPath);
             Map<String, Map> allPoints2Map = new HashMap<>();
             initAllPoints2Map(model, allPoints2Map);
             analyseMethod(model, allPoints2Map);
             analyseConstructorCall(model, allPoints2Map);
+            Utils.save(relation, relationPath);
+            Utils.resolveRelation(allPoints2Map);
             Utils.save(allPoints2Map, resultPath);
-            Utils.save(relation, "D:\\points2\\result\\relation.json");
+            return allPoints2Map;
         }
 
         /***
@@ -70,11 +80,12 @@ public class Points2Analyzer {
                     List<CtField> allFields = c.getElements(new TypeFilter<>(CtField.class));
                     for(CtField field : allFields) {
                         Set locationSites = new HashSet();
-                        if(field.isStatic()) {
-                            fieldMap.put(KEY_STATIC + ":" + field.getSimpleName(), locationSites);
-                        } else {
-                            fieldMap.put(field.getSimpleName(), locationSites);
-                        }
+//                        if(field.isStatic()) {
+//                            fieldMap.put(KEY_STATIC + ":" + field.getSimpleName(), locationSites);
+//                        } else {
+//                            fieldMap.put(field.getSimpleName(), locationSites);
+//                        }
+                        fieldMap.put(field.getSimpleName(), locationSites);
                     }
 
                     List<CtMethod> allMethods = c.getElements(new TypeFilter<>(CtMethod.class));
@@ -83,7 +94,7 @@ public class Points2Analyzer {
                         List<CtParameter> params = method.getElements(new TypeFilter<>(CtParameter.class));
                         for(CtParameter p : params) {
                             Set locationSites = new HashSet();
-                            locationSites.add(c.getQualifiedName() + ":" + p.getPosition().getLine() + "(" + p.getSimpleName() + ")");
+//                            locationSites.add(c.getQualifiedName() + ":" + p.getPosition().getLine() + "(" + p.getSimpleName() + ")");
                             paramMap.put(p.getSimpleName(), locationSites);
                         }
                         paramMap.put(KEY_RETURN, new HashSet());
@@ -100,15 +111,15 @@ public class Points2Analyzer {
             for(CtClass c : allClass) {
                 List<CtMethod> allMethod = c.getElements(new TypeFilter<>(CtMethod.class));
                 for(CtMethod m : allMethod) {
+                    if(m.isAbstract()) {
+                        continue;
+                    }
                     Map<String, Set> methodMap = (Map<String, Set>) ((Map)allPoints2Map.get(c.getQualifiedName()).get(KEY_METHOD)).get(m.getSignature());
                     List<CtStatement> statements = m.getBody().getStatements();
 
                     for(CtStatement s : statements) {
                         /*
                         <<========================================Java BNF=========================================>>
-                            <field declaration> ::= <field modifiers>? <type> <variable declarators> ;
-                            <field modifiers> ::= <field modifier> | <field modifiers> <field modifier>
-                            <field modifier> ::= public | protected | private | static | final | transient | volatile
                             <variable declarators> ::= <variable declarator> | <variable declarators> , <variable declarator>
                             <variable declarator> ::= <variable declarator id> | <variable declarator id> = <variable initializer>
                             <variable initializer> ::= <expression> | <array initializer>
@@ -132,16 +143,22 @@ public class Points2Analyzer {
                                 if(defaultExp instanceof CtVariableRead) {
                                     CtVariableReference varRef = ((CtVariableRead) defaultExp).getVariable();
                                     if(varRef instanceof CtFieldReference) {
-                                        locationSites.addAll(Utils.getFieldSites(allPoints2Map, (CtFieldReference) varRef));
+                                        locationSites.addAll(Utils.getFieldSites(allPoints2Map, (CtFieldAccess) (varRef.getParent())));
+                                        // adding a method-to-field type of relation
+                                        Utils.addRelation(relation,
+                                                Utils.encodeRelationNodeName(RelationType.M2F,
+                                                        new Object[]{c.getQualifiedName(), m.getSignature(), ((CtLocalVariable) s).getSimpleName()},
+                                                        new Object[]{((CtFieldReference) varRef).getDeclaringType().getQualifiedName(), varRef.getSimpleName()}));
                                     } else if(varRef instanceof CtParameterReference) {
                                          locationSites.addAll(Utils.getParamValueInMethod(allPoints2Map, m, varRef));
+                                        // adding a method-to-field type of relation
+                                        Utils.addRelation(relation,
+                                                Utils.encodeRelationNodeName(RelationType.M2M,
+                                                        new Object[]{c.getQualifiedName(), m.getSignature(), ((CtLocalVariable) s).getSimpleName()},
+                                                        new Object[]{c.getQualifiedName(), m.getSignature(), varRef.getSimpleName()}));
+                                    } else{
+                                        //TODO array access
                                     }
-                                    // add this relation for establishing the whole pointer graph
-                                    Utils.addRelation(relation,
-                                            Utils.encodeRelationNodeName(RelationType.F2F,
-                                                                        new Object[]{c.getQualifiedName(),((CtLocalVariable) s).getSimpleName()},
-                                                                        new Object[]{varRef.getType().getQualifiedName(), varRef.getSimpleName()}));
-
                                 } else if(defaultExp instanceof CtConstructorCall) {
                                     locationSites.add(c.getQualifiedName() + ":" + s.getPosition().getLine());
                                 }
@@ -151,9 +168,10 @@ public class Points2Analyzer {
                         if(s instanceof CtAssignment) {
                             CtExpression assigned = ((CtAssignment) s).getAssigned();
                             CtExpression assignment = ((CtAssignment) s).getAssignment();
-                            // field write
+                            // <left hand side> ::= <field access>
                             if(assigned instanceof CtFieldWrite) {
-                                Set leftLocationsSites = Utils.getFieldSites(allPoints2Map, ((CtFieldWrite) assigned).getVariable());
+
+                                Set leftLocationsSites = Utils.getFieldSites(allPoints2Map, (CtFieldAccess) assigned);
 
                                 if(assignment instanceof CtConstructorCall) {
                                     // right hand is a "new()" operation
@@ -163,15 +181,27 @@ public class Points2Analyzer {
                                 } else if(assignment instanceof CtFieldRead){
                                     // right hand is a field read operation
                                     // example: x.f = y.f
-                                    Set assignmentSites = Utils.getFieldSites(allPoints2Map, ((CtFieldRead) assignment).getVariable());
+                                    Set assignmentSites = Utils.getFieldSites(allPoints2Map, (CtFieldAccess) assignment);
                                     leftLocationsSites.addAll(assignmentSites);
 
-                                    // add this relation for establishing the whole pointer graph
+                                    // adding a field-to-field type of relation
                                     Utils.addRelation(relation,
                                             Utils.encodeRelationNodeName(RelationType.F2F,
                                                     new Object[]{((CtFieldWrite) assigned).getVariable().getDeclaringType().getQualifiedName(),((CtFieldWrite) assigned).getVariable().getSimpleName()},
                                                     new Object[]{((CtFieldRead) assignment).getVariable().getDeclaringType().getQualifiedName(), ((CtFieldRead) assignment).getVariable().getSimpleName()}));
+                                } else if(assignment instanceof CtInvocation) {
+                                    Set assignmentSites = Utils.getMethodReturn(allPoints2Map, ((CtInvocation) assignment).getExecutable());
+                                    leftLocationsSites.addAll(assignmentSites);
+
+                                    // adding a field-to-method type of relation
+                                    Utils.addRelation(relation,
+                                            Utils.encodeRelationNodeName(RelationType.F2M,
+                                                    new Object[]{((CtFieldWrite) assigned).getVariable().getDeclaringType().getQualifiedName(),((CtFieldWrite) assigned).getVariable().getSimpleName()},
+                                                    new Object[]{((CtInvocation) assignment).getExecutable().getDeclaringType().getQualifiedName(), ((CtInvocation) assignment).getExecutable().getSignature(), KEY_RETURN}));
+
                                 }
+                            } else {
+                                //TODO array access
                             }
                         }
                     }
@@ -182,13 +212,15 @@ public class Points2Analyzer {
                     for(CtReturn r : returnList){
                         CtExpression returnExp = r.getReturnedExpression();
                         if(returnExp instanceof CtFieldRead) {
-                            Set fieldSites = Utils.getFieldSites(allPoints2Map, ((CtFieldRead) returnExp).getVariable());
+                            Set fieldSites = Utils.getFieldSites(allPoints2Map, (CtFieldAccess) returnExp);
                             returnSites.addAll(fieldSites);
                         } else if(returnExp instanceof CtVariableRead) {
                             Set<String> varSites = methodMap.get(((CtVariableRead) returnExp).getVariable().getSimpleName());
                             returnSites.addAll(varSites);
                         } else if(returnExp instanceof CtConstructorCall) {
                             returnSites.add(c.getQualifiedName() + ":" + returnExp.getPosition().getLine());
+                        } else {
+                            //TODO return of invocation
                         }
                     }
                 }
@@ -205,7 +237,8 @@ public class Points2Analyzer {
                     if(call.getParent() instanceof CtField) {
                         CtField parent = (CtField) call.getParent();
                         Map<String, Set> fieldMap = (Map<String, Set>) allPoints2Map.get(c.getQualifiedName()).get(KEY_FIELD);
-                        Set locationSites = fieldMap.get(parent.isStatic() ? KEY_STATIC + ":" + parent.getSimpleName() : parent.getSimpleName());
+//                        Set locationSites = fieldMap.get(parent.isStatic() ? KEY_STATIC + ":" + parent.getSimpleName() : parent.getSimpleName());
+                        Set locationSites = fieldMap.get(parent.getSimpleName());
                         locationSites.add(c.getQualifiedName() + ":" + call.getPosition().getLine());
                     }
                     // 2. ConstructorCall in method
