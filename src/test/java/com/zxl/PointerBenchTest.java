@@ -1,10 +1,12 @@
 package com.zxl;
 
 import com.zxl.analyzer.Points2Analyzer;
+import com.zxl.utils.Utils;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.File;
 import java.util.Map;
 import java.util.Set;
 
@@ -19,7 +21,7 @@ public class PointerBenchTest {
     @Before
     public void beforeTest() {
         analyzer = new Points2Analyzer();
-        allPoints2Map = analyzer.process("D:\\IdeaProjects\\points2\\benchmark", null, null);
+        allPoints2Map = analyzer.process(Utils.getCurrentPath()+ File.separator + "benchmark", null, null);
     }
 
     @Test
