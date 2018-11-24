@@ -9,6 +9,7 @@ import spoon.reflect.reference.CtParameterReference;
 import spoon.reflect.reference.CtVariableReference;
 import spoon.reflect.visitor.filter.TypeFilter;
 
+import java.io.File;
 import java.util.*;
 import com.zxl.utils.CommonParam.RelationType;
 
@@ -33,10 +34,10 @@ public class Points2Analyzer {
 
         public Map process(String targetPath, String resultPath, String relationPath) {
             if(resultPath == null) {
-                resultPath = "D:\\points2\\result\\result.json";
+                resultPath = Utils.getCurrentPath() + File.separator + "result" + File.separator + "result.json";
             }
             if(relationPath == null) {
-                relationPath = "D:\\points2\\result\\relation.json";
+                relationPath = Utils.getCurrentPath() + File.separator + "result" + File.separator + "relation.json";
             }
             CtModel model = Utils.getModel(targetPath);
             Map<String, Map> allPoints2Map = new HashMap<>();
@@ -44,7 +45,7 @@ public class Points2Analyzer {
             analyseMethod(model, allPoints2Map);
             analyseConstructorCall(model, allPoints2Map);
             Utils.save(relation, relationPath);
-            Utils.resolveRelation(allPoints2Map);
+            Utils.resolveRelation(allPoints2Map, relation);
             Utils.save(allPoints2Map, resultPath);
             return allPoints2Map;
         }

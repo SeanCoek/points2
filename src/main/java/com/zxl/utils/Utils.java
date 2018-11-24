@@ -5,17 +5,15 @@ import com.google.gson.GsonBuilder;
 import com.zxl.utils.CommonParam.RelationType;
 import spoon.Launcher;
 import spoon.reflect.CtModel;
-import spoon.reflect.code.CtExpression;
 import spoon.reflect.code.CtFieldAccess;
-import spoon.reflect.code.CtTargetedExpression;
 import spoon.reflect.declaration.CtMethod;
 import spoon.reflect.reference.CtExecutableReference;
 import spoon.reflect.reference.CtFieldReference;
-import spoon.reflect.reference.CtTypeReference;
 import spoon.reflect.reference.CtVariableReference;
 
-import javax.management.relation.Relation;
 import java.io.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Map;
@@ -143,22 +141,22 @@ public class Utils {
         }
     }
 
-    public static void resolveRelation(Map<String, Map> allPoints2Map) {
-        File jsonFile = new File("D:\\points2\\result\\relation.json");
-        Map<String, ArrayList> gson = null;
-        try {
-            Reader jsonReader = new FileReader(jsonFile);
-            gson = new Gson().fromJson(jsonReader,Map.class);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+    public static void resolveRelation(Map<String, Map> allPoints2Map, Map<String, Set> relations) {
+//        File jsonFile = new File("D:\\IdeaProjects\\points2\\result\\relation.json");
+//        Map<String, ArrayList> gson = null;
+//        try {
+//            Reader jsonReader = new FileReader(jsonFile);
+//            gson = new Gson().fromJson(jsonReader,Map.class);
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        }
 //        System.out.println(gson);
         boolean changingFlag;
         do{
             changingFlag = false;
             // repeat scanning the relation util the points-to set stop changing.
-            for(String relationLeft : gson.keySet()) {
-                ArrayList<String> relationRightSet = gson.get(relationLeft);
+            for(String relationLeft : relations.keySet()) {
+                Set<String> relationRightSet = relations.get(relationLeft);
                 for(String relationRight : relationRightSet) {
                     if(dealRelation(allPoints2Map, relationLeft, relationRight)){
                         changingFlag = true;
@@ -167,5 +165,10 @@ public class Utils {
             }
 
         } while(changingFlag);
+    }
+
+    public static String getCurrentPath(){
+        Path path = Paths.get("");
+        return path.toAbsolutePath().toString();
     }
 }

@@ -20,7 +20,7 @@ public class PointerBenchTest {
 
     @Test
     public void testParameter1() {
-//        allPoints2Map = analyzer.process("D:\\Code\\Java\\PointerBench\\src\\basic", null, null);
+        allPoints2Map = analyzer.process("D:\\IdeaProjects\\points2\\benchmark", "D:\\IdeaProjects\\points2\\result\\result.json", "D:\\IdeaProjects\\points2\\result\\relation.json");
 //        Map<String, Set> points2InMethodTest = (Map<String, Set>) ((Map)allPoints2Map.get("Parameter1").get("method")).get("test(benchmark.objects.A)");
 //        Set b = points2InMethodTest.get("b");
 //        Set x = points2InMethodTest.get("x");
