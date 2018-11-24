@@ -170,39 +170,51 @@ public class Points2Analyzer {
                             CtExpression assigned = ((CtAssignment) s).getAssigned();
                             CtExpression assignment = ((CtAssignment) s).getAssignment();
                             // <left hand side> ::= <field access>
+                            Set leftLocationsSites = null;
                             if(assigned instanceof CtFieldWrite) {
 
-                                Set leftLocationsSites = Utils.getFieldSites(allPoints2Map, (CtFieldAccess) assigned);
+                                leftLocationsSites = Utils.getFieldSites(allPoints2Map, (CtFieldAccess) assigned);
+                            }
+                            else if(assigned instanceof CtVariableWrite) {
+                                //TODO left-hand is local variable
+                                leftLocationsSites = methodMap.get(((CtVariableWrite) assigned).getVariable().getSimpleName());
+                            }
 
-                                if(assignment instanceof CtConstructorCall) {
-                                    // right hand is a "new()" operation
-                                    // example: x.f = new object()
-                                    leftLocationsSites.add(c.getQualifiedName() + ":" + assignment.getPosition().getLine());
+                            Set assignmentSites = null;
+                            if(assignment instanceof CtConstructorCall) {
+                                // right hand is a "new()" operation
+                                // example: x.f = new object()
+                                leftLocationsSites.add(c.getQualifiedName() + ":" + assignment.getPosition().getLine());
 
-                                } else if(assignment instanceof CtFieldRead){
-                                    // right hand is a field read operation
-                                    // example: x.f = y.f
-                                    Set assignmentSites = Utils.getFieldSites(allPoints2Map, (CtFieldAccess) assignment);
-                                    leftLocationsSites.addAll(assignmentSites);
+                            } else if(assignment instanceof CtFieldRead){
+                                // right hand is a field read operation
+                                // example: x.f = y.f
+                                assignmentSites = Utils.getFieldSites(allPoints2Map, (CtFieldAccess) assignment);
+                                leftLocationsSites.addAll(assignmentSites);
 
-                                    // adding a field-to-field type of relation
+                                // adding a field-to-field type of relation
+                                if(assigned instanceof CtFieldWrite) {
                                     Utils.addRelation(relation,
                                             Utils.encodeRelationNodeName(RelationType.F2F,
-                                                    new Object[]{((CtFieldWrite) assigned).getVariable().getDeclaringType().getQualifiedName(),((CtFieldWrite) assigned).getVariable().getSimpleName()},
+                                                    new Object[]{((CtFieldWrite)assigned).getVariable().getDeclaringType().getQualifiedName(), ((CtFieldWrite) assigned).getVariable().getSimpleName()},
                                                     new Object[]{((CtFieldRead) assignment).getVariable().getDeclaringType().getQualifiedName(), ((CtFieldRead) assignment).getVariable().getSimpleName()}));
-                                } else if(assignment instanceof CtInvocation) {
-                                    Set assignmentSites = Utils.getMethodReturn(allPoints2Map, ((CtInvocation) assignment).getExecutable());
-                                    leftLocationsSites.addAll(assignmentSites);
+                                }
+                            }
+                            else if(assignment instanceof CtVariableRead) {
+                                assignmentSites = methodMap.get(((CtVariableRead) assignment).getVariable().getSimpleName());
+                                leftLocationsSites.addAll(assignmentSites);
+                            }
+                            else if(assignment instanceof CtInvocation) {
+                                assignmentSites = Utils.getMethodReturn(allPoints2Map, ((CtInvocation) assignment).getExecutable());
+                                leftLocationsSites.addAll(assignmentSites);
 
-                                    // adding a field-to-method type of relation
+                                // adding a field-to-method type of relation
+                                if(assigned instanceof CtFieldWrite) {
                                     Utils.addRelation(relation,
                                             Utils.encodeRelationNodeName(RelationType.F2M,
-                                                    new Object[]{((CtFieldWrite) assigned).getVariable().getDeclaringType().getQualifiedName(),((CtFieldWrite) assigned).getVariable().getSimpleName()},
+                                                    new Object[]{((CtFieldWrite) assigned).getVariable().getDeclaringType().getQualifiedName(), ((CtFieldWrite) assigned).getVariable().getSimpleName()},
                                                     new Object[]{((CtInvocation) assignment).getExecutable().getDeclaringType().getQualifiedName(), ((CtInvocation) assignment).getExecutable().getSignature(), KEY_RETURN}));
-
                                 }
-                            } else {
-                                //TODO array access
                             }
                         }
                     }

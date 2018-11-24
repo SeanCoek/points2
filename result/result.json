@@ -1,1 +1,44 @@
-{}
+{
+  "assignment.BasicAssignment": {
+    "field": {},
+    "method": {
+      "var2field()": {
+        "a": [
+          "assignment.BasicAssignment:15",
+          "assignment.BasicAssignment:17"
+        ],
+        "b": [
+          "assignment.BasicAssignment:16"
+        ],
+        "return": []
+      },
+      "var2var()": {
+        "a1": [
+          "assignment.BasicAssignment:9",
+          "assignment.BasicAssignment:10"
+        ],
+        "a2": [
+          "assignment.BasicAssignment:10"
+        ],
+        "return": []
+      }
+    }
+  },
+  "basic.ObjectB": {
+    "field": {
+      "f1": [],
+      "f2": [],
+      "f3": [
+        "assignment.BasicAssignment:17"
+      ]
+    },
+    "method": {}
+  },
+  "basic.ObjectA": {
+    "field": {
+      "f1": [],
+      "f2": []
+    },
+    "method": {}
+  }
+}
