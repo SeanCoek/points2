@@ -2,10 +2,47 @@
   "assignment.BasicAssignment": {
     "field": {},
     "method": {
+      "field2call()": {
+        "return": [],
+        "b1": [
+          "assignment.BasicAssignment:42"
+        ]
+      },
+      "var2call()": {
+        "a": [
+          "basic.ObjectB:15"
+        ],
+        "b": [
+          "assignment.BasicAssignment:23"
+        ],
+        "return": []
+      },
+      "field2var()": {
+        "a": [
+          "assignment.BasicAssignment:28"
+        ],
+        "b": [
+          "assignment.BasicAssignment:29"
+        ],
+        "return": []
+      },
+      "field2field()": {
+        "b2": [
+          "assignment.BasicAssignment:35"
+        ],
+        "return": [],
+        "b1": [
+          "assignment.BasicAssignment:34"
+        ]
+      },
       "var2field()": {
         "a": [
+          "assignment.BasicAssignment:36",
           "assignment.BasicAssignment:15",
-          "assignment.BasicAssignment:17"
+          "assignment.BasicAssignment:37",
+          "assignment.BasicAssignment:17",
+          "assignment.BasicAssignment:28",
+          "basic.ObjectB:15"
         ],
         "b": [
           "assignment.BasicAssignment:16"
@@ -29,10 +66,23 @@
       "f1": [],
       "f2": [],
       "f3": [
-        "assignment.BasicAssignment:17"
+        "assignment.BasicAssignment:36",
+        "assignment.BasicAssignment:37",
+        "assignment.BasicAssignment:17",
+        "assignment.BasicAssignment:28",
+        "basic.ObjectB:15"
       ]
     },
-    "method": {}
+    "method": {
+      "getA()": {
+        "a": [
+          "basic.ObjectB:15"
+        ],
+        "return": [
+          "basic.ObjectB:15"
+        ]
+      }
+    }
   },
   "basic.ObjectA": {
     "field": {

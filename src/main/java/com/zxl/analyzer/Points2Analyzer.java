@@ -186,23 +186,43 @@ public class Points2Analyzer {
                                 // example: x.f = new object()
                                 leftLocationsSites.add(c.getQualifiedName() + ":" + assignment.getPosition().getLine());
 
-                            } else if(assignment instanceof CtFieldRead){
+                            }
+                            else if(assignment instanceof CtFieldRead){
                                 // right hand is a field read operation
                                 // example: x.f = y.f
                                 assignmentSites = Utils.getFieldSites(allPoints2Map, (CtFieldAccess) assignment);
                                 leftLocationsSites.addAll(assignmentSites);
 
-                                // adding a field-to-field type of relation
+
                                 if(assigned instanceof CtFieldWrite) {
                                     Utils.addRelation(relation,
                                             Utils.encodeRelationNodeName(RelationType.F2F,
                                                     new Object[]{((CtFieldWrite)assigned).getVariable().getDeclaringType().getQualifiedName(), ((CtFieldWrite) assigned).getVariable().getSimpleName()},
                                                     new Object[]{((CtFieldRead) assignment).getVariable().getDeclaringType().getQualifiedName(), ((CtFieldRead) assignment).getVariable().getSimpleName()}));
                                 }
+                                else if(assigned instanceof CtVariableWrite) {
+                                    Utils.addRelation(relation,
+                                            Utils.encodeRelationNodeName(RelationType.M2F,
+                                                    new Object[]{c.getQualifiedName(), m.getSignature(), ((CtVariableWrite) assigned).getVariable().getSimpleName()},
+                                                    new Object[]{((CtFieldRead) assignment).getVariable().getDeclaringType().getQualifiedName(), ((CtFieldRead) assignment).getVariable().getSimpleName()}));
+                                }
                             }
                             else if(assignment instanceof CtVariableRead) {
                                 assignmentSites = methodMap.get(((CtVariableRead) assignment).getVariable().getSimpleName());
                                 leftLocationsSites.addAll(assignmentSites);
+
+                                if(assigned instanceof CtFieldWrite) {
+                                    Utils.addRelation(relation,
+                                            Utils.encodeRelationNodeName(RelationType.F2M,
+                                                    new Object[]{((CtFieldWrite)assigned).getVariable().getDeclaringType().getQualifiedName(), ((CtFieldWrite) assigned).getVariable().getSimpleName()},
+                                                    new Object[]{c.getQualifiedName(), m.getSignature(), ((CtVariableRead) assignment).getVariable().getSimpleName()}));
+                                }
+                                else if(assigned instanceof CtVariableWrite) {
+                                    Utils.addRelation(relation,
+                                            Utils.encodeRelationNodeName(RelationType.M2M,
+                                                    new Object[]{c.getQualifiedName(), m.getSignature(), ((CtVariableWrite) assigned).getVariable().getSimpleName()},
+                                                    new Object[]{c.getQualifiedName(), m.getSignature(), ((CtVariableRead) assignment).getVariable().getSimpleName()}));
+                                }
                             }
                             else if(assignment instanceof CtInvocation) {
                                 assignmentSites = Utils.getMethodReturn(allPoints2Map, ((CtInvocation) assignment).getExecutable());
@@ -213,6 +233,12 @@ public class Points2Analyzer {
                                     Utils.addRelation(relation,
                                             Utils.encodeRelationNodeName(RelationType.F2M,
                                                     new Object[]{((CtFieldWrite) assigned).getVariable().getDeclaringType().getQualifiedName(), ((CtFieldWrite) assigned).getVariable().getSimpleName()},
+                                                    new Object[]{((CtInvocation) assignment).getExecutable().getDeclaringType().getQualifiedName(), ((CtInvocation) assignment).getExecutable().getSignature(), KEY_RETURN}));
+                                }
+                                else if(assigned instanceof CtVariableWrite) {
+                                    Utils.addRelation(relation,
+                                            Utils.encodeRelationNodeName(RelationType.M2M,
+                                                    new Object[]{c.getQualifiedName(), m.getSignature(), ((CtVariableWrite) assigned).getVariable().getSimpleName()},
                                                     new Object[]{((CtInvocation) assignment).getExecutable().getDeclaringType().getQualifiedName(), ((CtInvocation) assignment).getExecutable().getSignature(), KEY_RETURN}));
                                 }
                             }
@@ -227,9 +253,17 @@ public class Points2Analyzer {
                         if(returnExp instanceof CtFieldRead) {
                             Set fieldSites = Utils.getFieldSites(allPoints2Map, (CtFieldAccess) returnExp);
                             returnSites.addAll(fieldSites);
+                            Utils.addRelation(relation,
+                                    Utils.encodeRelationNodeName(RelationType.M2F,
+                                            new Object[]{c.getQualifiedName(), m.getSignature(), KEY_RETURN},
+                                            new Object[]{((CtFieldRead) returnExp).getTarget().getType().getQualifiedName(), ((CtFieldRead) returnExp).getVariable().getSimpleName()}));
                         } else if(returnExp instanceof CtVariableRead) {
                             Set<String> varSites = methodMap.get(((CtVariableRead) returnExp).getVariable().getSimpleName());
                             returnSites.addAll(varSites);
+                            Utils.addRelation(relation,
+                                    Utils.encodeRelationNodeName(RelationType.M2M,
+                                            new Object[]{c.getQualifiedName(), m.getSignature(), KEY_RETURN},
+                                            new Object[]{c.getQualifiedName(), m.getSignature(), ((CtVariableRead) returnExp).getVariable().getSimpleName()}));
                         } else if(returnExp instanceof CtConstructorCall) {
                             returnSites.add(c.getQualifiedName() + ":" + returnExp.getPosition().getLine());
                         } else {

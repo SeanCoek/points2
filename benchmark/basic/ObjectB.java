@@ -10,4 +10,9 @@ public class ObjectB {
         this.f1 = f1;
         this.f2 = f2;
     }
+
+    public ObjectA getA() {
+        ObjectA a = new ObjectA();
+        return a;
+    }
 }
