@@ -88,4 +88,40 @@ public class PointerBenchTest {
 
         Assert.assertTrue(f3.containsAll(callReturn));
     }
+
+    @Test
+    public void testVar2Param() {
+        Map methodMap = (Map) allPoints2Map.get("assignment.BasicAssignment").get(KEY_METHOD);
+        Map<String, Set> var2paramMethod = (Map<String, Set>) methodMap.get("var2param()");
+        Set a = var2paramMethod.get("a");
+
+        Map methodMap2 = (Map) allPoints2Map.get("basic.ObjectB").get(KEY_METHOD);
+        Map<String, Set> setAMethod = (Map<String, Set>) methodMap2.get("setA(basic.ObjectA)");
+        Set objAParam = setAMethod.get("objA");
+
+        Assert.assertTrue(objAParam.containsAll(a));
+    }
+
+    @Test
+    public void testField2Param() {
+        Map fieldSites = (Map) allPoints2Map.get("basic.ObjectB").get(KEY_FIELD);
+        Set f3 = (Set) fieldSites.get("f3");
+
+        Map methodMap = (Map) allPoints2Map.get("basic.ObjectB").get(KEY_METHOD);
+        Map<String, Set> setAMethod = (Map<String, Set>) methodMap.get("setA(basic.ObjectA)");
+        Set objAParam = setAMethod.get("objA");
+
+        Assert.assertTrue(objAParam.containsAll(f3));
+    }
+
+    @Test
+    public void testCall2Param() {
+        Map methodMap = (Map) allPoints2Map.get("basic.ObjectB").get(KEY_METHOD);
+        Map<String, Set> setAMethod = (Map<String, Set>) methodMap.get("setA(basic.ObjectA)");
+        Map<String, Set> getAMethod = (Map<String, Set>) methodMap.get("getA()");
+        Set getAReturn = getAMethod.get(KEY_RETURN);
+        Set objAParam = setAMethod.get("objA");
+
+        Assert.assertTrue(objAParam.containsAll(getAReturn));
+    }
 }

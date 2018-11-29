@@ -6,7 +6,12 @@
     "basic.ObjectB:field:f3"
   ],
   "basic.ObjectB:method:getA():return": [
-    "basic.ObjectB:method:getA():a"
+    "basic.ObjectB:field:f3"
+  ],
+  "basic.ObjectB:method:setA(basic.ObjectA):objA": [
+    "basic.ObjectB:method:getA():return",
+    "assignment.BasicAssignment:method:var2param():a",
+    "basic.ObjectB:field:f3"
   ],
   "assignment.BasicAssignment:method:var2var():a1": [
     "assignment.BasicAssignment:method:var2var():a2"
@@ -14,6 +19,9 @@
   "basic.ObjectB:field:f3": [
     "assignment.BasicAssignment:method:field2var():a",
     "basic.ObjectB:method:getA():return",
+    "assignment.BasicAssignment:method:field2param():a",
+    "assignment.BasicAssignment:method:call2param():a",
+    "basic.ObjectB:method:setA(basic.ObjectA):objA",
     "basic.ObjectB:field:f3"
   ]
 }

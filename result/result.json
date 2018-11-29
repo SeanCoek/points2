@@ -10,12 +10,39 @@
       },
       "var2call()": {
         "a": [
-          "basic.ObjectB:15"
+          "assignment.BasicAssignment:36",
+          "assignment.BasicAssignment:47",
+          "assignment.BasicAssignment:37",
+          "assignment.BasicAssignment:17",
+          "assignment.BasicAssignment:28",
+          "assignment.BasicAssignment:62",
+          "assignment.BasicAssignment:53"
         ],
         "b": [
           "assignment.BasicAssignment:23"
         ],
         "return": []
+      },
+      "var2param()": {
+        "a": [
+          "assignment.BasicAssignment:47"
+        ],
+        "b": [
+          "assignment.BasicAssignment:48"
+        ],
+        "return": []
+      },
+      "field2param()": {
+        "b2": [
+          "assignment.BasicAssignment:55"
+        ],
+        "a": [
+          "assignment.BasicAssignment:53"
+        ],
+        "return": [],
+        "b1": [
+          "assignment.BasicAssignment:54"
+        ]
       },
       "field2var()": {
         "a": [
@@ -38,16 +65,30 @@
       "var2field()": {
         "a": [
           "assignment.BasicAssignment:36",
+          "assignment.BasicAssignment:47",
           "assignment.BasicAssignment:15",
           "assignment.BasicAssignment:37",
           "assignment.BasicAssignment:17",
           "assignment.BasicAssignment:28",
-          "basic.ObjectB:15"
+          "assignment.BasicAssignment:62",
+          "assignment.BasicAssignment:53"
         ],
         "b": [
           "assignment.BasicAssignment:16"
         ],
         "return": []
+      },
+      "call2param()": {
+        "b2": [
+          "assignment.BasicAssignment:64"
+        ],
+        "a": [
+          "assignment.BasicAssignment:62"
+        ],
+        "return": [],
+        "b1": [
+          "assignment.BasicAssignment:63"
+        ]
       },
       "var2var()": {
         "a1": [
@@ -67,20 +108,37 @@
       "f2": [],
       "f3": [
         "assignment.BasicAssignment:36",
+        "assignment.BasicAssignment:47",
         "assignment.BasicAssignment:37",
         "assignment.BasicAssignment:17",
         "assignment.BasicAssignment:28",
-        "basic.ObjectB:15"
+        "assignment.BasicAssignment:62",
+        "assignment.BasicAssignment:53"
       ]
     },
     "method": {
       "getA()": {
-        "a": [
-          "basic.ObjectB:15"
-        ],
         "return": [
-          "basic.ObjectB:15"
+          "assignment.BasicAssignment:36",
+          "assignment.BasicAssignment:47",
+          "assignment.BasicAssignment:37",
+          "assignment.BasicAssignment:17",
+          "assignment.BasicAssignment:28",
+          "assignment.BasicAssignment:62",
+          "assignment.BasicAssignment:53"
         ]
+      },
+      "setA(basic.ObjectA)": {
+        "objA": [
+          "assignment.BasicAssignment:36",
+          "assignment.BasicAssignment:47",
+          "assignment.BasicAssignment:37",
+          "assignment.BasicAssignment:17",
+          "assignment.BasicAssignment:28",
+          "assignment.BasicAssignment:62",
+          "assignment.BasicAssignment:53"
+        ],
+        "return": []
       }
     }
   },

@@ -12,7 +12,10 @@ public class ObjectB {
     }
 
     public ObjectA getA() {
-        ObjectA a = new ObjectA();
-        return a;
+        return this.f3;
+    }
+
+    public void setA(ObjectA objA) {
+        this.f3 = objA;
     }
 }

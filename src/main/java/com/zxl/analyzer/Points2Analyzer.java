@@ -1,9 +1,11 @@
 package com.zxl.analyzer;
 
 import com.zxl.utils.Utils;
+import jdk.internal.org.objectweb.asm.TypeReference;
 import spoon.reflect.CtModel;
 import spoon.reflect.code.*;
 import spoon.reflect.declaration.*;
+import spoon.reflect.reference.CtExecutableReference;
 import spoon.reflect.reference.CtFieldReference;
 import spoon.reflect.reference.CtParameterReference;
 import spoon.reflect.reference.CtVariableReference;
@@ -240,6 +242,42 @@ public class Points2Analyzer {
                                             Utils.encodeRelationNodeName(RelationType.M2M,
                                                     new Object[]{c.getQualifiedName(), m.getSignature(), ((CtVariableWrite) assigned).getVariable().getSimpleName()},
                                                     new Object[]{((CtInvocation) assignment).getExecutable().getDeclaringType().getQualifiedName(), ((CtInvocation) assignment).getExecutable().getSignature(), KEY_RETURN}));
+                                }
+                            }
+                        }
+                        // 3. method invocation
+                        if(s instanceof CtInvocation) {
+                            CtExecutableReference executable = ((CtInvocation) s).getExecutable();
+                            // declared parameters
+                            List<CtParameter> params = executable.getExecutableDeclaration().getParameters();
+                            // actual parameters
+                            List<CtExpression> arguments = ((CtInvocation) s).getArguments();
+                            if(arguments != null) {
+                                for(int i = 0; i < arguments.size(); i++) {
+                                    CtExpression exp = arguments.get(i);
+                                    CtParameter param = params.get(i);
+                                    // 1.argument is a field, add a relation of method-to-field
+                                    if(exp instanceof CtFieldRead) {
+                                        Utils.addRelation(relation,
+                                                Utils.encodeRelationNodeName(RelationType.M2F,
+                                                        new Object[]{executable.getDeclaringType().getQualifiedName(), executable.getSignature(), param.getSimpleName()},
+                                                        new Object[]{((CtFieldRead) exp).getVariable().getDeclaringType().getQualifiedName(), ((CtFieldRead) exp).getVariable().getSimpleName()}));
+                                    }
+                                    // 2.argument is a var, add a relation of method-to-method
+                                    else if(exp instanceof CtVariableRead) {
+                                        Utils.addRelation(relation,
+                                                Utils.encodeRelationNodeName(RelationType.M2M,
+                                                        new Object[]{executable.getDeclaringType().getQualifiedName(), executable.getSignature(), param.getSimpleName()},
+                                                        new Object[]{c.getQualifiedName(), m.getSignature(), ((CtVariableRead) exp).getVariable().getSimpleName()}));
+                                    }
+                                    // 3. argument is a method call, add a relation of method-to-method
+                                    else if (exp instanceof CtInvocation) {
+                                        CtExecutableReference executable2 = ((CtInvocation) exp).getExecutable();
+                                        Utils.addRelation(relation,
+                                                Utils.encodeRelationNodeName(RelationType.M2M,
+                                                        new Object[]{executable.getDeclaringType().getQualifiedName(), executable.getSignature(), param.getSimpleName()},
+                                                        new Object[]{executable2.getDeclaringType().getQualifiedName(), executable2.getSignature(), KEY_RETURN}));
+                                    }
                                 }
                             }
                         }

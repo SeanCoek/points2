@@ -42,4 +42,28 @@ public class BasicAssignment {
         ObjectB b1 = new ObjectB();
         b1.f3 = b1.getA();
     }
+
+    public void var2param() {
+        ObjectA a = new ObjectA();
+        ObjectB b = new ObjectB();
+        b.setA(a);
+    }
+
+    public void field2param() {
+        ObjectA a = new ObjectA();
+        ObjectB b1 = new ObjectB();
+        ObjectB b2 = new ObjectB();
+
+        b1.f3 = a;
+        b2.setA(b1.f3);
+    }
+
+    public void call2param() {
+        ObjectA a = new ObjectA();
+        ObjectB b1 = new ObjectB();
+        ObjectB b2 = new ObjectB();
+
+        b1.f3 = a;
+        b2.setA(b1.getA());
+    }
 }
