@@ -3,6 +3,7 @@ package basic;
 public class ObjectA {
     public String f1;
     public String f2;
+    public ObjectC objc;
 
     public ObjectA() {}
     public ObjectA(String f1, String f2) {

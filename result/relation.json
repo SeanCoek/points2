@@ -1,27 +1,250 @@
 {
-  "assignment.BasicAssignment:method:var2call():a": [
-    "basic.ObjectB:method:getA():return"
+  "cornerCases.ContextSensitivity2:method:test22(benchmark.objects.A,benchmark.objects.A):a2": [
+    "cornerCases.ContextSensitivity2:method:test2():a2"
   ],
-  "assignment.BasicAssignment:method:var2field():a": [
-    "basic.ObjectB:field:f3"
+  "cornerCases.ContextSensitivity3:method:test111(benchmark.objects.A,benchmark.objects.A):b1": [
+    "cornerCases.ContextSensitivity3:method:test11(benchmark.objects.A,benchmark.objects.A):b1"
   ],
-  "basic.ObjectB:method:getA():return": [
-    "basic.ObjectB:field:f3"
+  "cornerCases.ContextSensitivity3:method:test11(benchmark.objects.A,benchmark.objects.A):a1": [
+    "cornerCases.ContextSensitivity3:method:test1():a1"
   ],
-  "basic.ObjectB:method:setA(basic.ObjectA):objA": [
-    "basic.ObjectB:method:getA():return",
-    "assignment.BasicAssignment:method:var2param():a",
-    "basic.ObjectB:field:f3"
+  "generalJava.StaticVariables1:method:main(java.lang.String[]):b": [
+    "generalJava.StaticVariables1:field:a"
   ],
-  "assignment.BasicAssignment:method:var2var():a1": [
-    "assignment.BasicAssignment:method:var2var():a2"
+  "generalJava.StaticVariables1:method:main(java.lang.String[]):c": [
+    "generalJava.StaticVariables1:field:a"
   ],
-  "basic.ObjectB:field:f3": [
-    "assignment.BasicAssignment:method:field2var():a",
-    "basic.ObjectB:method:getA():return",
-    "assignment.BasicAssignment:method:field2param():a",
-    "assignment.BasicAssignment:method:call2param():a",
-    "basic.ObjectB:method:setA(basic.ObjectA):objA",
-    "basic.ObjectB:field:f3"
+  "java.util.ArrayList:method:add(E):arg0": [
+    "collections.List1:method:main(java.lang.String[]):a",
+    "collections.List1:method:main(java.lang.String[]):b"
+  ],
+  "generalJava.OuterClass1:method:test():h": [
+    "generalJava.OuterClass1$InnerClass:field:a"
+  ],
+  "benchmark.objects.G:method:foo(benchmark.objects.A):a": [
+    "generalJava.Interface1:method:main(java.lang.String[]):a"
+  ],
+  "basic.Loops1:method:test():q": [
+    "basic.Loops1$N:field:next"
+  ],
+  "cornerCases.ContextSensitivity3:method:test22(benchmark.objects.A,benchmark.objects.A):a2": [
+    "cornerCases.ContextSensitivity3:method:test2():a2"
+  ],
+  "cornerCases.FieldSensitivity1:method:assign(benchmark.objects.A,benchmark.objects.A):y": [
+    "cornerCases.FieldSensitivity1:method:main(java.lang.String[]):c"
+  ],
+  "basic.Loops1:method:test():p": [
+    "basic.Loops1$N:field:next"
+  ],
+  "generalJava.Null2:method:main(java.lang.String[]):x": [
+    "benchmark.objects.A:field:h"
+  ],
+  "benchmark.objects.A:field:f": [
+    "benchmark.objects.A:field:f"
+  ],
+  "basic.Loops1:method:test():o": [
+    "basic.Loops1$N:field:next"
+  ],
+  "cornerCases.FieldSensitivity1:method:main(java.lang.String[]):d": [
+    "benchmark.objects.A:field:f"
+  ],
+  "benchmark.objects.G:method:foo(benchmark.objects.A):return": [
+    "benchmark.objects.G:method:foo(benchmark.objects.A):a"
+  ],
+  "cornerCases.FieldSensitivity1:method:assign(benchmark.objects.A,benchmark.objects.A):x": [
+    "cornerCases.FieldSensitivity1:method:main(java.lang.String[]):a"
+  ],
+  "cornerCases.ContextSensitivity2:method:callee(benchmark.objects.A,benchmark.objects.A):a": [
+    "cornerCases.ContextSensitivity2:method:test22(benchmark.objects.A,benchmark.objects.A):a2",
+    "cornerCases.ContextSensitivity2:method:test11(benchmark.objects.A,benchmark.objects.A):a1"
+  ],
+  "cornerCases.ContextSensitivity2:method:callee(benchmark.objects.A,benchmark.objects.A):b": [
+    "cornerCases.ContextSensitivity2:method:test22(benchmark.objects.A,benchmark.objects.A):b2",
+    "cornerCases.ContextSensitivity2:method:test11(benchmark.objects.A,benchmark.objects.A):b1"
+  ],
+  "cornerCases.ContextSensitivity2:method:test11(benchmark.objects.A,benchmark.objects.A):a1": [
+    "cornerCases.ContextSensitivity2:method:test1():a1"
+  ],
+  "basic.Interprocedural1:method:main(java.lang.String[]):x": [
+    "benchmark.objects.A:field:f"
+  ],
+  "basic.Interprocedural1:method:main(java.lang.String[]):y": [
+    "benchmark.objects.A:field:f"
+  ],
+  "benchmark.objects.A:method:id(benchmark.objects.B):return": [
+    "benchmark.objects.A:method:id(benchmark.objects.B):b"
+  ],
+  "cornerCases.ContextSensitivity3:method:test111(benchmark.objects.A,benchmark.objects.A):a1": [
+    "cornerCases.ContextSensitivity3:method:test11(benchmark.objects.A,benchmark.objects.A):a1"
+  ],
+  "cornerCases.ContextSensitivity3:method:test11(benchmark.objects.A,benchmark.objects.A):b1": [
+    "cornerCases.ContextSensitivity3:method:test1():b1"
+  ],
+  "benchmark.objects.A:method:getF():return": [
+    "benchmark.objects.A:field:f"
+  ],
+  "cornerCases.ContextSensitivity1:method:callee(benchmark.objects.A,benchmark.objects.A):a": [
+    "cornerCases.ContextSensitivity1:method:test2():a2",
+    "cornerCases.ContextSensitivity1:method:test1():a1"
+  ],
+  "cornerCases.ContextSensitivity1:method:callee(benchmark.objects.A,benchmark.objects.A):b": [
+    "cornerCases.ContextSensitivity1:method:test2():b2",
+    "cornerCases.ContextSensitivity1:method:test1():b1"
+  ],
+  "basic.ReturnValue3:method:id(benchmark.objects.A):return": [
+    "basic.ReturnValue3:method:id(benchmark.objects.A):y"
+  ],
+  "java.util.LinkedList:method:add(E):arg0": [
+    "collections.List2:method:main(java.lang.String[]):a",
+    "collections.List2:method:main(java.lang.String[]):b"
+  ],
+  "basic.ReturnValue1:method:id(benchmark.objects.A):return": [
+    "basic.ReturnValue1:method:id(benchmark.objects.A):x"
+  ],
+  "benchmark.objects.H:field:a": [
+    "benchmark.objects.H:method:foo(benchmark.objects.A):a"
+  ],
+  "cornerCases.ContextSensitivity3:method:test222(benchmark.objects.A,benchmark.objects.A):a2": [
+    "cornerCases.ContextSensitivity3:method:test22(benchmark.objects.A,benchmark.objects.A):a2"
+  ],
+  "java.util.HashSet:method:add(E):arg0": [
+    "collections.Set1:method:main(java.lang.String[]):b",
+    "collections.Set1:method:main(java.lang.String[]):a"
+  ],
+  "benchmark.objects.Q:method:alias(benchmark.objects.A):x": [
+    "generalJava.SuperClasses1:method:main(java.lang.String[]):b"
+  ],
+  "basic.ReturnValue3:method:main(java.lang.String[]):x": [
+    "benchmark.objects.A:field:f"
+  ],
+  "basic.ReturnValue3:method:main(java.lang.String[]):y": [
+    "benchmark.objects.A:field:f"
+  ],
+  "cornerCases.ContextSensitivity2:method:test11(benchmark.objects.A,benchmark.objects.A):b1": [
+    "cornerCases.ContextSensitivity2:method:test1():b1"
+  ],
+  "cornerCases.FieldSensitivity2:method:test():d": [
+    "benchmark.objects.A:field:f"
+  ],
+  "basic.Interprocedural2:method:alloc(benchmark.objects.A,benchmark.objects.A):y": [
+    "basic.Interprocedural2:method:main(java.lang.String[]):b"
+  ],
+  "basic.Interprocedural2:method:alloc(benchmark.objects.A,benchmark.objects.A):x": [
+    "basic.Interprocedural2:method:main(java.lang.String[]):a"
+  ],
+  "cornerCases.StrongUpdate1:method:main(java.lang.String[]):x": [
+    "benchmark.objects.A:field:f"
+  ],
+  "cornerCases.StrongUpdate1:method:main(java.lang.String[]):y": [
+    "benchmark.objects.A:field:f"
+  ],
+  "basic.Parameter1:method:test(benchmark.objects.A):x": [
+    "basic.Parameter1:method:main(java.lang.String[]):a"
+  ],
+  "basic.Recursion1:method:test():q": [
+    "basic.Recursion1$N:field:next"
+  ],
+  "basic.Recursion1:method:test():p": [
+    "basic.Recursion1$N:field:next"
+  ],
+  "basic.Recursion1:method:test():o": [
+    "basic.Recursion1$N:field:next"
+  ],
+  "benchmark.objects.H:method:foo(benchmark.objects.A):return": [
+    "benchmark.objects.H:method:foo(benchmark.objects.A):a"
+  ],
+  "generalJava.OuterClass1$InnerClass:field:a": [
+    "generalJava.OuterClass1$InnerClass:method:alias(benchmark.objects.A):x",
+    "generalJava.OuterClass1:method:alias(benchmark.objects.A):x"
+  ],
+  "basic.Parameter2:method:test(benchmark.objects.A):b": [
+    "basic.Parameter2:method:test(benchmark.objects.A):x"
+  ],
+  "cornerCases.ContextSensitivity3:method:callee(benchmark.objects.A,benchmark.objects.A):a": [
+    "cornerCases.ContextSensitivity3:method:test111(benchmark.objects.A,benchmark.objects.A):a1",
+    "cornerCases.ContextSensitivity3:method:test222(benchmark.objects.A,benchmark.objects.A):a2"
+  ],
+  "java.util.HashMap:method:put(K,V):arg1": [
+    "collections.Map1:method:main(java.lang.String[]):a",
+    "collections.Map1:method:main(java.lang.String[]):b"
+  ],
+  "cornerCases.ContextSensitivity3:method:callee(benchmark.objects.A,benchmark.objects.A):b": [
+    "cornerCases.ContextSensitivity3:method:test111(benchmark.objects.A,benchmark.objects.A):b1",
+    "cornerCases.ContextSensitivity3:method:test222(benchmark.objects.A,benchmark.objects.A):b2"
+  ],
+  "basic.Interprocedural1:method:alloc(benchmark.objects.A,benchmark.objects.A):y": [
+    "basic.Interprocedural1:method:main(java.lang.String[]):b"
+  ],
+  "basic.Interprocedural1:method:alloc(benchmark.objects.A,benchmark.objects.A):x": [
+    "basic.Interprocedural1:method:main(java.lang.String[]):a"
+  ],
+  "benchmark.objects.Q:method:getA():return": [
+    "benchmark.objects.Q:field:a"
+  ],
+  "basic.Parameter2:method:test(benchmark.objects.A):x": [
+    "basic.Parameter2:method:main(java.lang.String[]):a"
+  ],
+  "cornerCases.FlowSensitivity1:method:main(java.lang.String[]):b": [
+    "cornerCases.FlowSensitivity1:method:main(java.lang.String[]):a"
+  ],
+  "benchmark.objects.Q:field:a": [
+    "benchmark.objects.Q:method:alias(benchmark.objects.A):x"
+  ],
+  "cornerCases.StrongUpdate2:method:main(java.lang.String[]):y": [
+    "benchmark.objects.A:field:f"
+  ],
+  "cornerCases.ContextSensitivity3:method:test222(benchmark.objects.A,benchmark.objects.A):b2": [
+    "cornerCases.ContextSensitivity3:method:test22(benchmark.objects.A,benchmark.objects.A):b2"
+  ],
+  "cornerCases.StrongUpdate2:method:main(java.lang.String[]):x": [
+    "benchmark.objects.A:field:f"
+  ],
+  "cornerCases.ContextSensitivity2:method:test22(benchmark.objects.A,benchmark.objects.A):b2": [
+    "cornerCases.ContextSensitivity2:method:test2():b2"
+  ],
+  "benchmark.objects.G:field:a": [
+    "benchmark.objects.G:method:foo(benchmark.objects.A):a"
+  ],
+  "basic.Interprocedural2:method:main(java.lang.String[]):x": [
+    "benchmark.objects.A:field:f"
+  ],
+  "basic.Interprocedural2:method:main(java.lang.String[]):y": [
+    "benchmark.objects.A:field:f"
+  ],
+  "basic.Parameter1:method:test(benchmark.objects.A):b": [
+    "basic.Parameter1:method:test(benchmark.objects.A):x"
+  ],
+  "basic.ReturnValue2:method:id(benchmark.objects.A):return": [
+    "basic.ReturnValue2:method:id(benchmark.objects.A):x"
+  ],
+  "cornerCases.ContextSensitivity3:method:test22(benchmark.objects.A,benchmark.objects.A):b2": [
+    "cornerCases.ContextSensitivity3:method:test2():b2"
+  ],
+  "basic.Recursion1:method:recursive(int,basic.Recursion1$N):return": [
+    "basic.Recursion1:method:recursive(int,basic.Recursion1$N):m"
+  ],
+  "generalJava.OuterClass1$InnerClass:method:alias(benchmark.objects.A):x": [
+    "generalJava.OuterClass1:method:test():b"
+  ],
+  "cornerCases.FieldSensitivity2:method:assign(benchmark.objects.A,benchmark.objects.A):y": [
+    "cornerCases.FieldSensitivity2:method:test():c"
+  ],
+  "benchmark.internal.Benchmark:method:use(java.lang.Object):o": [
+    "collections.Set1:method:main(java.lang.String[]):c",
+    "generalJava.Null1:method:main(java.lang.String[]):b",
+    "generalJava.SuperClasses1:method:main(java.lang.String[]):h",
+    "generalJava.Interface1:method:main(java.lang.String[]):c"
+  ],
+  "cornerCases.FieldSensitivity2:method:assign(benchmark.objects.A,benchmark.objects.A):x": [
+    "cornerCases.FieldSensitivity2:method:test():a"
+  ],
+  "benchmark.objects.A:method:getH():return": [
+    "benchmark.objects.A:field:h"
+  ],
+  "basic.Loops2:method:test():o": [
+    "basic.Loops2$N:field:next"
+  ],
+  "basic.Loops2:method:test():p": [
+    "basic.Loops2$N:field:next"
   ]
 }

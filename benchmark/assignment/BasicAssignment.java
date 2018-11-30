@@ -2,6 +2,7 @@ package assignment;
 
 import basic.ObjectA;
 import basic.ObjectB;
+import basic.ObjectC;
 
 public class BasicAssignment {
 
@@ -31,11 +32,13 @@ public class BasicAssignment {
     }
 
     public void field2field() {
-        ObjectB b1 = new ObjectB();
-        ObjectB b2 = new ObjectB();
-        b1.f3 = new ObjectA();
-        b2.f3 = new ObjectA();
-        b1.f3 = b2.f3;
+        ObjectA a = new ObjectA();
+        ObjectB b = new ObjectB();
+        ObjectC c1 = new ObjectC();
+        ObjectC c2 = new ObjectC();
+        a.objc = c1;
+        b.objc = c2;
+        a.objc = b.objc;
     }
 
     public void field2call() {

@@ -134,12 +134,6 @@ public class PointerBenchTest {
 
     @Test
     public void test3PartyLib() {
-        String DESCRIPTION = "Spin is a tool for analyzing the logical consistency of asynchronous systems, specifically distributed software and communication protocols." +
-                "A verification model of the system is first specified in a guarded command language called Promela. This specification language, described in the refernce," +
-                "allows for the modeling of dynamic creation of asynchronous processes, nondeterministic case selection, loops, gotos, local and global variables. It also " +
-                "allows for a concise specification of logical correctness requirements, including, but not restricted to requiremnets expressed in linear temporal logic." +
-                "Given a Promela model stored in file, Spin can perform interactive, guided, or random simulations of the system's execution. It can also generate a C program" +
-                "that performs and exhaustive or approximate verification of correctness requirements for the system.";
-        
+
     }
 }
