@@ -76,6 +76,13 @@ public class PointerBenchTest {
     public void testField2FieldAssignment() {
         // object-sensitive has not been implemented yet
         // so we could not test field-to-field assignment now.
+        Map fieldSties1 = (Map) allPoints2Map.get("basic.ObjectA").get(KEY_FIELD);
+        Set objc1 = (Set) fieldSties1.get("objc");
+
+        Map fieldSties2 = (Map) allPoints2Map.get("basic.ObjectB").get(KEY_FIELD);
+        Set objc2 = (Set) fieldSties1.get("objc");
+
+        Assert.assertTrue(objc1.containsAll(objc2));
     }
 
     @Test
@@ -123,5 +130,16 @@ public class PointerBenchTest {
         Set objAParam = setAMethod.get("objA");
 
         Assert.assertTrue(objAParam.containsAll(getAReturn));
+    }
+
+    @Test
+    public void test3PartyLib() {
+        String DESCRIPTION = "Spin is a tool for analyzing the logical consistency of asynchronous systems, specifically distributed software and communication protocols." +
+                "A verification model of the system is first specified in a guarded command language called Promela. This specification language, described in the refernce," +
+                "allows for the modeling of dynamic creation of asynchronous processes, nondeterministic case selection, loops, gotos, local and global variables. It also " +
+                "allows for a concise specification of logical correctness requirements, including, but not restricted to requiremnets expressed in linear temporal logic." +
+                "Given a Promela model stored in file, Spin can perform interactive, guided, or random simulations of the system's execution. It can also generate a C program" +
+                "that performs and exhaustive or approximate verification of correctness requirements for the system.";
+        
     }
 }

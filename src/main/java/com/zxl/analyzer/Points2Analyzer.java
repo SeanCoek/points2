@@ -178,8 +178,10 @@ public class Points2Analyzer {
                                 leftLocationsSites = Utils.getFieldSites(allPoints2Map, (CtFieldAccess) assigned);
                             }
                             else if(assigned instanceof CtVariableWrite) {
-                                //TODO left-hand is local variable
                                 leftLocationsSites = methodMap.get(((CtVariableWrite) assigned).getVariable().getSimpleName());
+                            } else if(assigned instanceof CtArrayWrite) {
+                                // TODO left-hand is array write
+                                continue;
                             }
 
                             Set assignmentSites = null;
@@ -243,6 +245,10 @@ public class Points2Analyzer {
                                                     new Object[]{c.getQualifiedName(), m.getSignature(), ((CtVariableWrite) assigned).getVariable().getSimpleName()},
                                                     new Object[]{((CtInvocation) assignment).getExecutable().getDeclaringType().getQualifiedName(), ((CtInvocation) assignment).getExecutable().getSignature(), KEY_RETURN}));
                                 }
+                            }
+                            else if (assignment instanceof CtArrayRead) {
+                                // TODO right-hand is array read
+                                continue;
                             }
                         }
                         // 3. method invocation

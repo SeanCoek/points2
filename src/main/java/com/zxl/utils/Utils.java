@@ -26,9 +26,6 @@ public class Utils {
     public static CtModel getModel(String targetPath) {
         Launcher launcher = new Launcher();
         launcher.addInputResource(targetPath);
-//        launcher.addInputResource("D:\\annotationTest\\src\\main\\java\\com\\zxl\\points2");
-//        launcher.addInputResource("D:\\Code\\Java\\PointerBench\\src");
-
         launcher.getEnvironment().setAutoImports(true);
         launcher.getEnvironment().setNoClasspath(true);
         launcher.buildModel();
@@ -142,15 +139,6 @@ public class Utils {
     }
 
     public static void resolveRelation(Map<String, Map> allPoints2Map, Map<String, Set> relations) {
-//        File jsonFile = new File("D:\\IdeaProjects\\points2\\result\\relation.json");
-//        Map<String, ArrayList> gson = null;
-//        try {
-//            Reader jsonReader = new FileReader(jsonFile);
-//            gson = new Gson().fromJson(jsonReader,Map.class);
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        }
-//        System.out.println(gson);
         boolean changingFlag;
         do{
             changingFlag = false;
@@ -158,12 +146,15 @@ public class Utils {
             for(String relationLeft : relations.keySet()) {
                 Set<String> relationRightSet = relations.get(relationLeft);
                 for(String relationRight : relationRightSet) {
-                    if(dealRelation(allPoints2Map, relationLeft, relationRight)){
-                        changingFlag = true;
+                    try {
+                        if (dealRelation(allPoints2Map, relationLeft, relationRight)) {
+                            changingFlag = true;
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 }
             }
-
         } while(changingFlag);
     }
 
