@@ -5,10 +5,7 @@ import jdk.internal.org.objectweb.asm.TypeReference;
 import spoon.reflect.CtModel;
 import spoon.reflect.code.*;
 import spoon.reflect.declaration.*;
-import spoon.reflect.reference.CtExecutableReference;
-import spoon.reflect.reference.CtFieldReference;
-import spoon.reflect.reference.CtParameterReference;
-import spoon.reflect.reference.CtVariableReference;
+import spoon.reflect.reference.*;
 import spoon.reflect.visitor.filter.TypeFilter;
 
 import java.io.File;
@@ -143,27 +140,59 @@ public class Points2Analyzer {
                             // assigned in declaration
                             CtExpression defaultExp = ((CtLocalVariable) s).getDefaultExpression();
                             if(defaultExp != null) {
-                                if(defaultExp instanceof CtVariableRead) {
+                                if(defaultExp instanceof CtFieldRead) {
+                                    CtFieldReference fieldRef = ((CtFieldRead) defaultExp).getVariable();
+                                    locationSites.addAll(Utils.getFieldSites(allPoints2Map, (CtFieldAccess) fieldRef.getParent()));
+                                    // adding a method-to-field type of relation
+                                    Utils.addRelation(relation,
+                                            Utils.encodeRelationNodeName(RelationType.M2F,
+                                                    new Object[]{c.getQualifiedName(), m.getSignature(), ((CtLocalVariable) s).getSimpleName()},
+                                                    new Object[]{fieldRef.getDeclaringType().getQualifiedName(), fieldRef.getSimpleName()}));
+                                }
+                                else if(defaultExp instanceof CtVariableRead) {
                                     CtVariableReference varRef = ((CtVariableRead) defaultExp).getVariable();
-                                    if(varRef instanceof CtFieldReference) {
-                                        locationSites.addAll(Utils.getFieldSites(allPoints2Map, (CtFieldAccess) (varRef.getParent())));
-                                        // adding a method-to-field type of relation
-                                        Utils.addRelation(relation,
-                                                Utils.encodeRelationNodeName(RelationType.M2F,
-                                                        new Object[]{c.getQualifiedName(), m.getSignature(), ((CtLocalVariable) s).getSimpleName()},
-                                                        new Object[]{((CtFieldReference) varRef).getDeclaringType().getQualifiedName(), varRef.getSimpleName()}));
-                                    } else if(varRef instanceof CtParameterReference) {
-                                         locationSites.addAll(Utils.getParamValueInMethod(allPoints2Map, m, varRef));
-                                        // adding a method-to-field type of relation
+                                    if(varRef instanceof CtParameterReference || varRef instanceof CtLocalVariableReference) {
+                                        locationSites.addAll(Utils.getParamValueInMethod(allPoints2Map, m, varRef));
+                                        // adding a method-to-method type of relation
                                         Utils.addRelation(relation,
                                                 Utils.encodeRelationNodeName(RelationType.M2M,
                                                         new Object[]{c.getQualifiedName(), m.getSignature(), ((CtLocalVariable) s).getSimpleName()},
                                                         new Object[]{c.getQualifiedName(), m.getSignature(), varRef.getSimpleName()}));
-                                    } else{
-                                        //TODO array access
                                     }
-                                } else if(defaultExp instanceof CtConstructorCall) {
+                                }
+                                else if(defaultExp instanceof CtConstructorCall || defaultExp instanceof CtNewArray) {
                                     locationSites.add(c.getQualifiedName() + ":" + s.getPosition().getLine());
+                                }
+                                else if(defaultExp instanceof CtArrayRead) {
+                                    CtExpression array_target = ((CtArrayRead) defaultExp).getTarget();
+                                    if(array_target instanceof CtFieldRead) {
+                                        CtFieldReference fieldRef = ((CtFieldRead) array_target).getVariable();
+                                        locationSites.addAll(Utils.getFieldSites(allPoints2Map, (CtFieldAccess) fieldRef.getParent()));
+                                        // adding a method-to-field type of relation
+                                        Utils.addRelation(relation,
+                                                Utils.encodeRelationNodeName(RelationType.M2F,
+                                                        new Object[]{c.getQualifiedName(), m.getSignature(), ((CtLocalVariable) s).getSimpleName()},
+                                                        new Object[]{fieldRef.getDeclaringType().getQualifiedName(), fieldRef.getSimpleName()}));
+                                    }
+                                    else if(array_target instanceof CtVariableRead) {
+                                        CtVariableReference varRef = ((CtVariableRead) array_target).getVariable();
+                                        if(varRef instanceof CtParameterReference || varRef instanceof CtLocalVariableReference) {
+                                            locationSites.addAll(Utils.getParamValueInMethod(allPoints2Map, m, varRef));
+                                            // adding a method-to-method type of relation
+                                            Utils.addRelation(relation,
+                                                    Utils.encodeRelationNodeName(RelationType.M2M,
+                                                            new Object[]{c.getQualifiedName(), m.getSignature(), ((CtLocalVariable) s).getSimpleName()},
+                                                            new Object[]{c.getQualifiedName(), m.getSignature(), varRef.getSimpleName()}));
+                                        }
+                                    }
+                                }
+                                else if(defaultExp instanceof CtInvocation) {
+                                    Set methodReturn = Utils.getMethodReturn(allPoints2Map, ((CtInvocation) defaultExp).getExecutable());
+                                    locationSites.addAll(methodReturn);
+                                    Utils.addRelation(relation,
+                                            Utils.encodeRelationNodeName(RelationType.M2M,
+                                                    new Object[]{c.getQualifiedName(), m.getSignature(), ((CtLocalVariable) s).getSimpleName()},
+                                                    new Object[]{((CtInvocation) defaultExp).getExecutable().getDeclaringType().getQualifiedName(), ((CtInvocation) defaultExp).getExecutable().getSignature(), KEY_RETURN}));
                                 }
                             }
                         }
@@ -185,9 +214,10 @@ public class Points2Analyzer {
                             }
 
                             Set assignmentSites = null;
-                            if(assignment instanceof CtConstructorCall) {
+                            if(assignment instanceof CtConstructorCall || assignment instanceof CtNewArray) {
                                 // right hand is a "new()" operation
-                                // example: x.f = new object()
+                                // example: x.f = new Object()
+                                // or: x.f = new Object[2];
                                 leftLocationsSites.add(c.getQualifiedName() + ":" + assignment.getPosition().getLine());
 
                             }

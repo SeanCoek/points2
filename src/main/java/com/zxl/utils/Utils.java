@@ -77,8 +77,13 @@ public class Utils {
     public static Set getMethodReturn(Map<String, Map> allPoints2Map, CtExecutableReference exec) {
         String className = exec.getDeclaringType().getQualifiedName();
         String methodName = exec.getSignature();
-
-        return (Set) ((Map<String, Map>) ((Map) (allPoints2Map.get(className)).get(KEY_METHOD))).get(methodName).get(KEY_RETURN);
+        Set result = new HashSet();
+        try {
+            result =  (Set) ((Map<String, Map>) ((Map) (allPoints2Map.get(className)).get(KEY_METHOD))).get(methodName).get(KEY_RETURN);
+        } catch (Exception e) {
+            System.out.println("Can't not resolve method ==> " + className + ":" + methodName);
+        }
+        return result;
     }
 
     public static void addRelation(Map<String,Set> relationMap, String[] relationNodes) {
@@ -151,6 +156,7 @@ public class Utils {
                             changingFlag = true;
                         }
                     } catch (Exception e) {
+                        // relation node can't be found.
                         e.printStackTrace();
                     }
                 }

@@ -69,4 +69,22 @@ public class BasicAssignment {
         b1.f3 = a;
         b2.setA(b1.getA());
     }
+
+    public void arrayAssign() {
+        // local array
+        ObjectA[] loc_arr = new ObjectA[2];
+        ObjectA[] loc_arr2 = loc_arr;
+        loc_arr[0] = new ObjectA();
+        ObjectA loc_a = loc_arr[0];
+        loc_arr[1] = loc_a;
+
+        // field array
+        ObjectB b = new ObjectB();
+        ObjectA[] field_arr = new ObjectA[2];
+        b.a_arr = field_arr;
+        ObjectA[] field_arr2 = b.a_arr;
+
+        // array as parameter
+
+    }
 }
