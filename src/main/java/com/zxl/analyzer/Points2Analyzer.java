@@ -11,6 +11,9 @@ import spoon.reflect.visitor.filter.TypeFilter;
 import java.io.File;
 import java.util.*;
 import com.zxl.utils.CommonParam.RelationType;
+import spoon.support.reflect.declaration.CtMethodImpl;
+
+import javax.rmi.CORBA.Util;
 
 public class Points2Analyzer {
 
@@ -210,7 +213,12 @@ public class Points2Analyzer {
                                 leftLocationsSites = methodMap.get(((CtVariableWrite) assigned).getVariable().getSimpleName());
                             } else if(assigned instanceof CtArrayWrite) {
                                 // TODO left-hand is array write
-                                continue;
+                                CtExpression arrayTarget = ((CtArrayWrite) assigned).getTarget();
+                                if(arrayTarget instanceof CtFieldRead) {
+                                    leftLocationsSites = Utils.getFieldSites(allPoints2Map, (CtFieldAccess) arrayTarget);
+                                } else if(arrayTarget instanceof CtVariableRead) {
+                                    leftLocationsSites = methodMap.get(((CtVariableRead) arrayTarget).getVariable().getSimpleName());
+                                }
                             }
 
                             Set assignmentSites = null;
@@ -227,7 +235,6 @@ public class Points2Analyzer {
                                 assignmentSites = Utils.getFieldSites(allPoints2Map, (CtFieldAccess) assignment);
                                 leftLocationsSites.addAll(assignmentSites);
 
-
                                 if(assigned instanceof CtFieldWrite) {
                                     Utils.addRelation(relation,
                                             Utils.encodeRelationNodeName(RelationType.F2F,
@@ -239,6 +246,20 @@ public class Points2Analyzer {
                                             Utils.encodeRelationNodeName(RelationType.M2F,
                                                     new Object[]{c.getQualifiedName(), m.getSignature(), ((CtVariableWrite) assigned).getVariable().getSimpleName()},
                                                     new Object[]{((CtFieldRead) assignment).getVariable().getDeclaringType().getQualifiedName(), ((CtFieldRead) assignment).getVariable().getSimpleName()}));
+                                }
+                                else if(assigned instanceof CtArrayWrite) {
+                                    CtExpression arrayTarget = ((CtArrayWrite) assigned).getTarget();
+                                    if(arrayTarget instanceof CtFieldRead) {
+                                        Utils.addRelation(relation,
+                                                Utils.encodeRelationNodeName(RelationType.F2F,
+                                                        new Object[]{((CtFieldRead) arrayTarget).getVariable().getDeclaringType().getQualifiedName(), ((CtFieldRead) arrayTarget).getVariable().getSimpleName()},
+                                                        new Object[]{((CtFieldRead) assignment).getVariable().getDeclaringType().getQualifiedName(), ((CtFieldRead) assignment).getVariable().getSimpleName()}));
+                                    } else if(arrayTarget instanceof CtVariableRead) {
+                                        Utils.addRelation(relation,
+                                                Utils.encodeRelationNodeName(RelationType.M2F,
+                                                        new Object[]{c.getQualifiedName(), m.getSignature(), ((CtVariableRead) arrayTarget).getVariable().getSimpleName()},
+                                                        new Object[]{((CtFieldRead) assignment).getVariable().getDeclaringType().getQualifiedName(), ((CtFieldRead) assignment).getVariable().getSimpleName()}));
+                                    }
                                 }
                             }
                             else if(assignment instanceof CtVariableRead) {
@@ -256,6 +277,20 @@ public class Points2Analyzer {
                                             Utils.encodeRelationNodeName(RelationType.M2M,
                                                     new Object[]{c.getQualifiedName(), m.getSignature(), ((CtVariableWrite) assigned).getVariable().getSimpleName()},
                                                     new Object[]{c.getQualifiedName(), m.getSignature(), ((CtVariableRead) assignment).getVariable().getSimpleName()}));
+                                }
+                                else if(assigned instanceof CtArrayWrite) {
+                                    CtExpression arrayTarget = ((CtArrayWrite) assigned).getTarget();
+                                    if(arrayTarget instanceof CtFieldRead) {
+                                        Utils.addRelation(relation,
+                                                Utils.encodeRelationNodeName(RelationType.F2M,
+                                                        new Object[]{((CtFieldRead) arrayTarget).getVariable().getDeclaringType().getQualifiedName(), ((CtFieldRead) arrayTarget).getVariable().getSimpleName()},
+                                                        new Object[]{c.getQualifiedName(), m.getSignature(), ((CtVariableRead) assignment).getVariable().getSimpleName()}));
+                                    } else if(arrayTarget instanceof CtVariableRead) {
+                                        Utils.addRelation(relation,
+                                                Utils.encodeRelationNodeName(RelationType.M2M,
+                                                        new Object[]{c.getQualifiedName(), m.getSignature(), ((CtVariableRead) arrayTarget).getVariable().getSimpleName()},
+                                                        new Object[]{c.getQualifiedName(), m.getSignature(), ((CtVariableRead) assignment).getVariable().getSimpleName()}));
+                                    }
                                 }
                             }
                             else if(assignment instanceof CtInvocation) {
@@ -275,10 +310,74 @@ public class Points2Analyzer {
                                                     new Object[]{c.getQualifiedName(), m.getSignature(), ((CtVariableWrite) assigned).getVariable().getSimpleName()},
                                                     new Object[]{((CtInvocation) assignment).getExecutable().getDeclaringType().getQualifiedName(), ((CtInvocation) assignment).getExecutable().getSignature(), KEY_RETURN}));
                                 }
+                                else if(assigned instanceof CtArrayWrite) {
+                                    CtExpression arrayTarget = ((CtArrayWrite) assigned).getTarget();
+                                    if(arrayTarget instanceof CtFieldRead) {
+                                        Utils.addRelation(relation,
+                                                Utils.encodeRelationNodeName(RelationType.F2M,
+                                                        new Object[]{((CtFieldRead) arrayTarget).getVariable().getDeclaringType().getQualifiedName(), ((CtFieldRead) arrayTarget).getVariable().getSimpleName()},
+                                                        new Object[]{((CtInvocation) assignment).getExecutable().getDeclaringType().getQualifiedName(), ((CtInvocation) assignment).getExecutable().getSignature(), KEY_RETURN}));
+                                    } else if(arrayTarget instanceof CtVariableRead) {
+                                        Utils.addRelation(relation,
+                                                Utils.encodeRelationNodeName(RelationType.M2M,
+                                                        new Object[]{c.getQualifiedName(), m.getSignature(), ((CtVariableRead) arrayTarget).getVariable().getSimpleName()},
+                                                        new Object[]{((CtInvocation) assignment).getExecutable().getDeclaringType().getQualifiedName(), ((CtInvocation) assignment).getExecutable().getSignature(), KEY_RETURN}));
+                                    }
+                                }
                             }
                             else if (assignment instanceof CtArrayRead) {
-                                // TODO right-hand is array read
-                                continue;
+                                CtExpression arrayTarget = ((CtArrayRead) assignment).getTarget();
+                                if(arrayTarget instanceof CtFieldRead) {
+                                    if(assigned instanceof CtFieldWrite) {
+                                        Utils.addRelation(relation,
+                                                Utils.encodeRelationNodeName(RelationType.F2F,
+                                                        new Object[]{((CtFieldWrite) assigned).getVariable().getDeclaringType().getQualifiedName(), ((CtFieldWrite) assigned).getVariable().getSimpleName()},
+                                                        new Object[]{((CtFieldRead) arrayTarget).getVariable().getDeclaringType().getQualifiedName(), ((CtFieldRead) arrayTarget).getVariable().getSimpleName()}));
+                                    } else if(assigned instanceof CtVariableWrite) {
+                                        Utils.addRelation(relation,
+                                                Utils.encodeRelationNodeName(RelationType.M2F,
+                                                        new Object[]{c.getQualifiedName(), m.getSignature(), ((CtVariableWrite) assigned).getVariable().getSimpleName()},
+                                                        new Object[]{((CtFieldRead) arrayTarget).getVariable().getDeclaringType().getQualifiedName(), ((CtFieldRead) arrayTarget).getVariable().getSimpleName()}));
+                                    } else if(assigned instanceof CtArrayWrite) {
+                                        CtExpression assignedArrayTarget = ((CtArrayWrite) assigned).getTarget();
+                                        if(assignedArrayTarget instanceof CtFieldRead) {
+                                            Utils.addRelation(relation,
+                                                    Utils.encodeRelationNodeName(RelationType.F2F,
+                                                            new Object[]{((CtFieldRead) assignedArrayTarget).getVariable().getDeclaringType().getQualifiedName(), ((CtFieldRead) arrayTarget).getVariable().getSimpleName()},
+                                                            new Object[]{((CtFieldRead) arrayTarget).getVariable().getDeclaringType().getQualifiedName(), ((CtFieldRead) arrayTarget).getVariable().getSimpleName()}));
+                                        } else if(assignedArrayTarget instanceof CtVariableRead) {
+                                            Utils.addRelation(relation,
+                                                    Utils.encodeRelationNodeName(RelationType.M2F,
+                                                            new Object[]{c.getQualifiedName(), m.getSignature(), ((CtVariableRead) assignedArrayTarget).getVariable().getSimpleName()},
+                                                            new Object[]{((CtFieldRead) arrayTarget).getVariable().getDeclaringType().getQualifiedName(), ((CtFieldRead) arrayTarget).getVariable().getSimpleName()}));
+                                        }
+                                    }
+                                } else if(arrayTarget instanceof CtVariableRead){
+                                    if(assigned instanceof CtFieldWrite) {
+                                        Utils.addRelation(relation,
+                                                Utils.encodeRelationNodeName(RelationType.F2M,
+                                                        new Object[]{((CtFieldWrite)assigned).getVariable().getDeclaringType().getQualifiedName(), ((CtFieldWrite) assigned).getVariable().getSimpleName()},
+                                                        new Object[]{c.getQualifiedName(), m.getSignature(), ((CtVariableRead) arrayTarget).getVariable().getSimpleName()}));
+                                    } else if(assigned instanceof CtVariableWrite) {
+                                        Utils.addRelation(relation,
+                                                Utils.encodeRelationNodeName(RelationType.M2M,
+                                                        new Object[]{c.getQualifiedName(), m.getSignature(), ((CtVariableWrite) assigned).getVariable().getSimpleName()},
+                                                        new Object[]{c.getQualifiedName(), m.getSignature(), ((CtVariableRead) arrayTarget).getVariable().getSimpleName()}));
+                                    } else if(assigned instanceof CtArrayWrite) {
+                                        CtExpression assignedArrayTarget = ((CtArrayWrite) assigned).getTarget();
+                                        if(assignedArrayTarget instanceof CtFieldRead) {
+                                            Utils.addRelation(relation,
+                                                    Utils.encodeRelationNodeName(RelationType.F2M,
+                                                            new Object[]{((CtFieldRead) assignedArrayTarget).getVariable().getDeclaringType().getQualifiedName(), ((CtFieldRead) assignedArrayTarget).getVariable().getSimpleName()},
+                                                            new Object[]{c.getQualifiedName(), m.getSignature(), ((CtVariableRead) arrayTarget).getVariable().getSimpleName()}));
+                                        } else if(assignedArrayTarget instanceof CtVariableRead) {
+                                            Utils.addRelation(relation,
+                                                    Utils.encodeRelationNodeName(RelationType.M2M,
+                                                            new Object[]{c.getQualifiedName(), m.getSignature(), ((CtVariableRead) assignedArrayTarget).getVariable().getSimpleName()},
+                                                            new Object[]{c.getQualifiedName(), m.getSignature(), ((CtVariableRead) arrayTarget).getVariable().getSimpleName()}));
+                                        }
+                                    }
+                                }
                             }
                         }
                         // 3. method invocation
@@ -290,29 +389,47 @@ public class Points2Analyzer {
                             List<CtExpression> arguments = ((CtInvocation) s).getArguments();
                             if(arguments != null) {
                                 for(int i = 0; i < arguments.size(); i++) {
-                                    CtExpression exp = arguments.get(i);
+                                    CtExpression argument = arguments.get(i);
                                     CtParameter param = params.get(i);
                                     // 1.argument is a field, add a relation of method-to-field
-                                    if(exp instanceof CtFieldRead) {
+                                    if(argument instanceof CtFieldRead) {
                                         Utils.addRelation(relation,
                                                 Utils.encodeRelationNodeName(RelationType.M2F,
                                                         new Object[]{executable.getDeclaringType().getQualifiedName(), executable.getSignature(), param.getSimpleName()},
-                                                        new Object[]{((CtFieldRead) exp).getVariable().getDeclaringType().getQualifiedName(), ((CtFieldRead) exp).getVariable().getSimpleName()}));
+                                                        new Object[]{((CtFieldRead) argument).getVariable().getDeclaringType().getQualifiedName(), ((CtFieldRead) argument).getVariable().getSimpleName()}));
                                     }
                                     // 2.argument is a var, add a relation of method-to-method
-                                    else if(exp instanceof CtVariableRead) {
+                                    else if(argument instanceof CtVariableRead) {
                                         Utils.addRelation(relation,
                                                 Utils.encodeRelationNodeName(RelationType.M2M,
                                                         new Object[]{executable.getDeclaringType().getQualifiedName(), executable.getSignature(), param.getSimpleName()},
-                                                        new Object[]{c.getQualifiedName(), m.getSignature(), ((CtVariableRead) exp).getVariable().getSimpleName()}));
+                                                        new Object[]{c.getQualifiedName(), m.getSignature(), ((CtVariableRead) argument).getVariable().getSimpleName()}));
                                     }
                                     // 3. argument is a method call, add a relation of method-to-method
-                                    else if (exp instanceof CtInvocation) {
-                                        CtExecutableReference executable2 = ((CtInvocation) exp).getExecutable();
+                                    else if (argument instanceof CtInvocation) {
+                                        CtExecutableReference executable2 = ((CtInvocation) argument).getExecutable();
                                         Utils.addRelation(relation,
                                                 Utils.encodeRelationNodeName(RelationType.M2M,
                                                         new Object[]{executable.getDeclaringType().getQualifiedName(), executable.getSignature(), param.getSimpleName()},
                                                         new Object[]{executable2.getDeclaringType().getQualifiedName(), executable2.getSignature(), KEY_RETURN}));
+                                    }
+                                    // 3. argument is array read
+                                    else if(argument instanceof CtArrayRead) {
+                                        CtExpression arrayTarget = ((CtArrayRead) argument).getTarget();
+                                        if(arrayTarget instanceof CtFieldRead) {
+                                            Utils.addRelation(relation,
+                                                    Utils.encodeRelationNodeName(RelationType.M2F,
+                                                            new Object[]{executable.getDeclaringType().getQualifiedName(), executable.getSignature(), param.getSimpleName()},
+                                                            new Object[]{((CtFieldRead) arrayTarget).getVariable().getDeclaringType().getQualifiedName(), ((CtFieldRead) arrayTarget).getVariable().getSimpleName()}));
+                                        } else if(arrayTarget instanceof CtVariableRead) {
+                                            Utils.addRelation(relation,
+                                                    Utils.encodeRelationNodeName(RelationType.M2M,
+                                                            new Object[]{executable.getDeclaringType().getQualifiedName(), executable.getSignature(), param.getSimpleName()},
+                                                            new Object[]{c.getQualifiedName(), m.getSignature(), ((CtVariableRead) arrayTarget).getVariable().getSimpleName()}));
+                                        }
+                                    } else if(argument instanceof CtConstructorCall || argument instanceof CtNewArray) {
+                                        Set paramSites = Utils.getParamValueByName(allPoints2Map, executable.getDeclaringType().getQualifiedName(), executable.getSignature(), param.getReference());
+                                        paramSites.add(c.getQualifiedName() + ":" + argument.getPosition().getLine());
                                     }
                                 }
                             }
@@ -340,8 +457,27 @@ public class Points2Analyzer {
                                             new Object[]{c.getQualifiedName(), m.getSignature(), ((CtVariableRead) returnExp).getVariable().getSimpleName()}));
                         } else if(returnExp instanceof CtConstructorCall) {
                             returnSites.add(c.getQualifiedName() + ":" + returnExp.getPosition().getLine());
-                        } else {
-                            //TODO return of invocation
+                        } else if(returnExp instanceof CtInvocation){
+                            // return of invocation
+                            CtExecutableReference executable = ((CtInvocation) returnExp).getExecutable();
+                            Utils.addRelation(relation,
+                                    Utils.encodeRelationNodeName(RelationType.M2M,
+                                            new Object[]{c.getQualifiedName(), m.getSignature(), KEY_RETURN},
+                                            new Object[]{executable.getDeclaringType().getQualifiedName(), executable.getSignature(), KEY_RETURN}));
+                        } else if(returnExp instanceof CtArrayRead) {
+                            // return array element
+                            CtExpression arrayTarget = ((CtArrayRead) returnExp).getTarget();
+                            if(arrayTarget instanceof CtFieldRead) {
+                                Utils.addRelation(relation,
+                                        Utils.encodeRelationNodeName(RelationType.M2F,
+                                                new Object[]{c.getQualifiedName(), m.getSignature(), KEY_RETURN},
+                                                new Object[]{((CtFieldRead) arrayTarget).getVariable().getDeclaringType().getQualifiedName(), ((CtFieldRead) arrayTarget).getVariable().getSimpleName()}));
+                            } else if(arrayTarget instanceof CtVariableRead) {
+                                Utils.addRelation(relation,
+                                        Utils.encodeRelationNodeName(RelationType.M2M,
+                                                new Object[]{c.getQualifiedName(), m.getSignature(), KEY_RETURN},
+                                                new Object[]{c.getQualifiedName(), m.getSignature(), ((CtVariableRead) arrayTarget).getVariable().getSimpleName()}));
+                            }
                         }
                     }
                 }

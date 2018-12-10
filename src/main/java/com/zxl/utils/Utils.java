@@ -74,6 +74,14 @@ public class Utils {
 
     }
 
+    public static Set getParamValueByName(Map<String, Map> allPoints2Map, String className, String methodName, CtVariableReference var) {
+        if(var == null) {
+            return null;
+        }
+        return (Set) ((Map<String, Map>) ((Map) (allPoints2Map.get(className)).get(KEY_METHOD))).get(methodName).get(var.getSimpleName());
+
+    }
+
     public static Set getMethodReturn(Map<String, Map> allPoints2Map, CtExecutableReference exec) {
         String className = exec.getDeclaringType().getQualifiedName();
         String methodName = exec.getSignature();

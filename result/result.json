@@ -4,12 +4,27 @@
     "method": {
       "assignInLocalInitial(basic.ObjectA,basic.ObjectA[])": {
         "a10": [
-          "assignment.BasicAssignment:83",
-          "assignment.BasicAssignment2:47",
-          "assignment.BasicAssignment2:66",
+          "assignment.BasicAssignment:56",
+          "assignment.BasicAssignment2:19",
+          "assignment.BasicAssignment2:112",
+          "assignment.BasicAssignment2:135",
+          "assignment.BasicAssignment2:113",
+          "assignment.BasicAssignment2:125",
+          "assignment.BasicAssignment2:136",
+          "assignment.BasicAssignment:18",
+          "assignment.BasicAssignment:29",
+          "assignment.BasicAssignment2:49",
+          "assignment.BasicAssignment2:46",
+          "assignment.BasicAssignment2:44",
+          "assignment.BasicAssignment2:45",
           "assignment.BasicAssignment2:20",
-          "assignment.BasicAssignment2:86",
-          "assignment.BasicAssignment2:43"
+          "assignment.BasicAssignment2:75",
+          "assignment.BasicAssignment2:98",
+          "assignment.BasicAssignment2:74",
+          "assignment.BasicAssignment2:50",
+          "assignment.BasicAssignment:83",
+          "assignment.BasicAssignment:50",
+          "assignment.BasicAssignment:65"
         ],
         "b": [
           "assignment.BasicAssignment2:18"
@@ -29,119 +44,213 @@
         ],
         "a5": [
           "assignment.BasicAssignment:56",
-          "assignment.BasicAssignment2:85",
           "assignment.BasicAssignment2:19",
+          "assignment.BasicAssignment2:112",
+          "assignment.BasicAssignment2:135",
+          "assignment.BasicAssignment2:113",
+          "assignment.BasicAssignment2:125",
+          "assignment.BasicAssignment2:136",
           "assignment.BasicAssignment:18",
           "assignment.BasicAssignment:29",
+          "assignment.BasicAssignment2:49",
           "assignment.BasicAssignment2:46",
+          "assignment.BasicAssignment2:44",
+          "assignment.BasicAssignment2:45",
+          "assignment.BasicAssignment2:20",
+          "assignment.BasicAssignment2:75",
+          "assignment.BasicAssignment2:98",
+          "assignment.BasicAssignment2:74",
+          "assignment.BasicAssignment2:50",
+          "assignment.BasicAssignment:83",
           "assignment.BasicAssignment:50",
-          "assignment.BasicAssignment2:42",
-          "assignment.BasicAssignment:65",
-          "assignment.BasicAssignment2:65"
+          "assignment.BasicAssignment:65"
         ],
         "a6": [
-          "assignment.BasicAssignment:83",
-          "assignment.BasicAssignment2:47",
-          "assignment.BasicAssignment2:66",
+          "assignment.BasicAssignment:56",
+          "assignment.BasicAssignment2:19",
+          "assignment.BasicAssignment2:112",
+          "assignment.BasicAssignment2:135",
+          "assignment.BasicAssignment2:113",
+          "assignment.BasicAssignment2:125",
+          "assignment.BasicAssignment2:136",
+          "assignment.BasicAssignment:18",
+          "assignment.BasicAssignment:29",
+          "assignment.BasicAssignment2:49",
+          "assignment.BasicAssignment2:46",
+          "assignment.BasicAssignment2:44",
+          "assignment.BasicAssignment2:45",
           "assignment.BasicAssignment2:20",
-          "assignment.BasicAssignment2:86",
-          "assignment.BasicAssignment2:43"
+          "assignment.BasicAssignment2:75",
+          "assignment.BasicAssignment2:98",
+          "assignment.BasicAssignment2:74",
+          "assignment.BasicAssignment2:50",
+          "assignment.BasicAssignment:83",
+          "assignment.BasicAssignment:50",
+          "assignment.BasicAssignment:65"
         ],
         "a7": [],
         "a8": [],
         "a9": [
           "assignment.BasicAssignment:56",
-          "assignment.BasicAssignment2:85",
           "assignment.BasicAssignment2:19",
+          "assignment.BasicAssignment2:112",
+          "assignment.BasicAssignment2:135",
+          "assignment.BasicAssignment2:113",
+          "assignment.BasicAssignment2:125",
+          "assignment.BasicAssignment2:136",
           "assignment.BasicAssignment:18",
           "assignment.BasicAssignment:29",
+          "assignment.BasicAssignment2:49",
           "assignment.BasicAssignment2:46",
+          "assignment.BasicAssignment2:44",
+          "assignment.BasicAssignment2:45",
+          "assignment.BasicAssignment2:20",
+          "assignment.BasicAssignment2:75",
+          "assignment.BasicAssignment2:98",
+          "assignment.BasicAssignment2:74",
+          "assignment.BasicAssignment2:50",
+          "assignment.BasicAssignment:83",
           "assignment.BasicAssignment:50",
-          "assignment.BasicAssignment2:42",
-          "assignment.BasicAssignment:65",
-          "assignment.BasicAssignment2:65"
+          "assignment.BasicAssignment:65"
         ],
         "paramA": [],
         "return": []
       },
       "commonAssignment(basic.ObjectA,basic.ObjectA,basic.ObjectA[],basic.ObjectA[])": {
         "paramArr2": [
-          "assignment.BasicAssignment2:66"
+          "assignment.BasicAssignment2:75"
         ],
         "objForAccessField": [
           "assignment.BasicAssignment2:36"
         ],
         "locA": [
           "assignment.BasicAssignment:56",
-          "assignment.BasicAssignment2:85",
           "assignment.BasicAssignment2:19",
+          "assignment.BasicAssignment2:112",
+          "assignment.BasicAssignment2:135",
+          "assignment.BasicAssignment2:113",
+          "assignment.BasicAssignment2:125",
+          "assignment.BasicAssignment2:136",
           "assignment.BasicAssignment:18",
           "assignment.BasicAssignment:29",
           "assignment.BasicAssignment2:38",
+          "assignment.BasicAssignment2:49",
           "assignment.BasicAssignment2:46",
+          "assignment.BasicAssignment2:44",
+          "assignment.BasicAssignment2:45",
+          "assignment.BasicAssignment2:20",
+          "assignment.BasicAssignment2:75",
+          "assignment.BasicAssignment2:98",
+          "assignment.BasicAssignment2:74",
+          "assignment.BasicAssignment2:50",
+          "assignment.BasicAssignment:83",
           "assignment.BasicAssignment:50",
-          "assignment.BasicAssignment2:42",
-          "assignment.BasicAssignment:65",
-          "assignment.BasicAssignment2:65"
+          "assignment.BasicAssignment:65"
         ],
         "locArr": [
-          "assignment.BasicAssignment2:39",
-          "assignment.BasicAssignment2:47",
-          "assignment.BasicAssignment:83",
-          "assignment.BasicAssignment2:66",
-          "assignment.BasicAssignment2:20",
-          "assignment.BasicAssignment2:86",
-          "assignment.BasicAssignment2:43"
-        ],
-        "locA2": [
-          "assignment.BasicAssignment2:46"
-        ],
-        "paramArr": [
-          "assignment.BasicAssignment2:41",
-          "assignment.BasicAssignment2:47",
-          "assignment.BasicAssignment:83",
-          "assignment.BasicAssignment2:66",
-          "assignment.BasicAssignment2:20",
-          "assignment.BasicAssignment2:86",
-          "assignment.BasicAssignment2:43"
-        ],
-        "paramA2": [
-          "assignment.BasicAssignment2:65"
-        ],
-        "locArr2": [
-          "assignment.BasicAssignment2:47"
-        ],
-        "paramA": [
-          "assignment.BasicAssignment2:40",
           "assignment.BasicAssignment:56",
-          "assignment.BasicAssignment2:85",
           "assignment.BasicAssignment2:19",
+          "assignment.BasicAssignment2:112",
+          "assignment.BasicAssignment2:135",
+          "assignment.BasicAssignment2:113",
+          "assignment.BasicAssignment2:39",
+          "assignment.BasicAssignment2:125",
+          "assignment.BasicAssignment2:136",
           "assignment.BasicAssignment:18",
           "assignment.BasicAssignment:29",
+          "assignment.BasicAssignment2:49",
           "assignment.BasicAssignment2:46",
+          "assignment.BasicAssignment2:44",
+          "assignment.BasicAssignment2:45",
+          "assignment.BasicAssignment2:20",
+          "assignment.BasicAssignment2:75",
+          "assignment.BasicAssignment2:98",
+          "assignment.BasicAssignment2:40",
+          "assignment.BasicAssignment2:74",
+          "assignment.BasicAssignment2:50",
+          "assignment.BasicAssignment:83",
           "assignment.BasicAssignment:50",
+          "assignment.BasicAssignment:65"
+        ],
+        "locA2": [
+          "assignment.BasicAssignment2:49"
+        ],
+        "paramArr": [
+          "assignment.BasicAssignment:56",
+          "assignment.BasicAssignment2:19",
+          "assignment.BasicAssignment2:112",
+          "assignment.BasicAssignment2:135",
+          "assignment.BasicAssignment2:113",
+          "assignment.BasicAssignment2:125",
+          "assignment.BasicAssignment2:136",
+          "assignment.BasicAssignment:18",
+          "assignment.BasicAssignment:29",
+          "assignment.BasicAssignment2:49",
+          "assignment.BasicAssignment2:46",
+          "assignment.BasicAssignment2:44",
+          "assignment.BasicAssignment2:45",
           "assignment.BasicAssignment2:42",
-          "assignment.BasicAssignment:65",
-          "assignment.BasicAssignment2:65"
+          "assignment.BasicAssignment2:20",
+          "assignment.BasicAssignment2:75",
+          "assignment.BasicAssignment2:43",
+          "assignment.BasicAssignment2:98",
+          "assignment.BasicAssignment2:74",
+          "assignment.BasicAssignment2:50",
+          "assignment.BasicAssignment:83",
+          "assignment.BasicAssignment:50",
+          "assignment.BasicAssignment:65"
+        ],
+        "paramA2": [
+          "assignment.BasicAssignment2:74"
+        ],
+        "arrayForAssignment": [
+          "assignment.BasicAssignment2:98"
+        ],
+        "locArr2": [
+          "assignment.BasicAssignment2:50"
+        ],
+        "paramA": [
+          "assignment.BasicAssignment:56",
+          "assignment.BasicAssignment2:19",
+          "assignment.BasicAssignment2:112",
+          "assignment.BasicAssignment2:135",
+          "assignment.BasicAssignment2:113",
+          "assignment.BasicAssignment2:125",
+          "assignment.BasicAssignment2:136",
+          "assignment.BasicAssignment:18",
+          "assignment.BasicAssignment:29",
+          "assignment.BasicAssignment2:49",
+          "assignment.BasicAssignment2:46",
+          "assignment.BasicAssignment2:44",
+          "assignment.BasicAssignment2:45",
+          "assignment.BasicAssignment2:20",
+          "assignment.BasicAssignment2:75",
+          "assignment.BasicAssignment2:98",
+          "assignment.BasicAssignment2:41",
+          "assignment.BasicAssignment2:74",
+          "assignment.BasicAssignment2:50",
+          "assignment.BasicAssignment:83",
+          "assignment.BasicAssignment:50",
+          "assignment.BasicAssignment:65"
         ],
         "return": [],
         "objForAccessField2": [
-          "assignment.BasicAssignment2:56"
+          "assignment.BasicAssignment2:62"
         ]
       },
       "methodInvocation(basic.ObjectA,basic.ObjectA[])": {
         "objForAccessField": [
-          "assignment.BasicAssignment2:88"
+          "assignment.BasicAssignment2:109"
         ],
         "locA": [
-          "assignment.BasicAssignment2:85"
+          "assignment.BasicAssignment2:112"
         ],
         "locArr": [
-          "assignment.BasicAssignment2:86"
+          "assignment.BasicAssignment2:113"
         ],
         "paramArr": [],
         "objForAccessMethod": [
-          "assignment.BasicAssignment2:87"
+          "assignment.BasicAssignment2:108"
         ],
         "paramA": [],
         "return": []
@@ -160,15 +269,26 @@
       "var2call()": {
         "a": [
           "assignment.BasicAssignment:56",
-          "assignment.BasicAssignment2:85",
           "assignment.BasicAssignment2:19",
+          "assignment.BasicAssignment2:112",
+          "assignment.BasicAssignment2:135",
+          "assignment.BasicAssignment2:113",
+          "assignment.BasicAssignment2:125",
+          "assignment.BasicAssignment2:136",
           "assignment.BasicAssignment:18",
           "assignment.BasicAssignment:29",
+          "assignment.BasicAssignment2:49",
           "assignment.BasicAssignment2:46",
+          "assignment.BasicAssignment2:44",
+          "assignment.BasicAssignment2:45",
+          "assignment.BasicAssignment2:20",
+          "assignment.BasicAssignment2:75",
+          "assignment.BasicAssignment2:98",
+          "assignment.BasicAssignment2:74",
+          "assignment.BasicAssignment2:50",
+          "assignment.BasicAssignment:83",
           "assignment.BasicAssignment:50",
-          "assignment.BasicAssignment2:42",
-          "assignment.BasicAssignment:65",
-          "assignment.BasicAssignment2:65"
+          "assignment.BasicAssignment:65"
         ],
         "b": [
           "assignment.BasicAssignment:24"
@@ -204,22 +324,40 @@
           "assignment.BasicAssignment:83"
         ],
         "loc_a": [
+          "assignment.BasicAssignment:77",
           "assignment.BasicAssignment:75"
         ],
         "loc_arr": [
+          "assignment.BasicAssignment:77",
           "assignment.BasicAssignment:75"
         ],
         "loc_arr2": [
+          "assignment.BasicAssignment:77",
           "assignment.BasicAssignment:75"
         ],
         "return": [],
         "field_arr2": [
-          "assignment.BasicAssignment:83",
-          "assignment.BasicAssignment2:47",
-          "assignment.BasicAssignment2:66",
+          "assignment.BasicAssignment:56",
+          "assignment.BasicAssignment2:19",
+          "assignment.BasicAssignment2:112",
+          "assignment.BasicAssignment2:135",
+          "assignment.BasicAssignment2:113",
+          "assignment.BasicAssignment2:125",
+          "assignment.BasicAssignment2:136",
+          "assignment.BasicAssignment:18",
+          "assignment.BasicAssignment:29",
+          "assignment.BasicAssignment2:49",
+          "assignment.BasicAssignment2:46",
+          "assignment.BasicAssignment2:44",
+          "assignment.BasicAssignment2:45",
           "assignment.BasicAssignment2:20",
-          "assignment.BasicAssignment2:86",
-          "assignment.BasicAssignment2:43"
+          "assignment.BasicAssignment2:75",
+          "assignment.BasicAssignment2:98",
+          "assignment.BasicAssignment2:74",
+          "assignment.BasicAssignment2:50",
+          "assignment.BasicAssignment:83",
+          "assignment.BasicAssignment:50",
+          "assignment.BasicAssignment:65"
         ]
       },
       "field2var()": {
@@ -249,16 +387,27 @@
       "var2field()": {
         "a": [
           "assignment.BasicAssignment:56",
-          "assignment.BasicAssignment2:85",
           "assignment.BasicAssignment2:19",
+          "assignment.BasicAssignment2:112",
           "assignment.BasicAssignment:16",
+          "assignment.BasicAssignment2:135",
+          "assignment.BasicAssignment2:113",
+          "assignment.BasicAssignment2:125",
+          "assignment.BasicAssignment2:136",
           "assignment.BasicAssignment:18",
           "assignment.BasicAssignment:29",
+          "assignment.BasicAssignment2:49",
           "assignment.BasicAssignment2:46",
+          "assignment.BasicAssignment2:44",
+          "assignment.BasicAssignment2:45",
+          "assignment.BasicAssignment2:20",
+          "assignment.BasicAssignment2:75",
+          "assignment.BasicAssignment2:98",
+          "assignment.BasicAssignment2:74",
+          "assignment.BasicAssignment2:50",
+          "assignment.BasicAssignment:83",
           "assignment.BasicAssignment:50",
-          "assignment.BasicAssignment2:42",
-          "assignment.BasicAssignment:65",
-          "assignment.BasicAssignment2:65"
+          "assignment.BasicAssignment:65"
         ],
         "b": [
           "assignment.BasicAssignment:17"
@@ -296,26 +445,52 @@
   "basic.ObjectB": {
     "field": {
       "a_arr": [
-        "assignment.BasicAssignment:83",
-        "assignment.BasicAssignment2:47",
-        "assignment.BasicAssignment2:66",
+        "assignment.BasicAssignment:56",
+        "assignment.BasicAssignment2:19",
+        "assignment.BasicAssignment2:112",
+        "assignment.BasicAssignment2:135",
+        "assignment.BasicAssignment2:113",
+        "assignment.BasicAssignment2:125",
+        "assignment.BasicAssignment2:136",
+        "assignment.BasicAssignment:18",
+        "assignment.BasicAssignment:29",
+        "assignment.BasicAssignment2:49",
+        "assignment.BasicAssignment2:46",
+        "assignment.BasicAssignment2:44",
+        "assignment.BasicAssignment2:45",
         "assignment.BasicAssignment2:20",
-        "assignment.BasicAssignment2:86",
-        "assignment.BasicAssignment2:43"
+        "assignment.BasicAssignment2:75",
+        "assignment.BasicAssignment2:98",
+        "assignment.BasicAssignment2:74",
+        "assignment.BasicAssignment2:50",
+        "assignment.BasicAssignment:83",
+        "assignment.BasicAssignment:50",
+        "assignment.BasicAssignment:65"
       ],
       "f1": [],
       "f2": [],
       "f3": [
         "assignment.BasicAssignment:56",
-        "assignment.BasicAssignment2:85",
         "assignment.BasicAssignment2:19",
+        "assignment.BasicAssignment2:112",
+        "assignment.BasicAssignment2:135",
+        "assignment.BasicAssignment2:113",
+        "assignment.BasicAssignment2:125",
+        "assignment.BasicAssignment2:136",
         "assignment.BasicAssignment:18",
         "assignment.BasicAssignment:29",
+        "assignment.BasicAssignment2:49",
         "assignment.BasicAssignment2:46",
+        "assignment.BasicAssignment2:44",
+        "assignment.BasicAssignment2:45",
+        "assignment.BasicAssignment2:20",
+        "assignment.BasicAssignment2:75",
+        "assignment.BasicAssignment2:98",
+        "assignment.BasicAssignment2:74",
+        "assignment.BasicAssignment2:50",
+        "assignment.BasicAssignment:83",
         "assignment.BasicAssignment:50",
-        "assignment.BasicAssignment2:42",
-        "assignment.BasicAssignment:65",
-        "assignment.BasicAssignment2:65"
+        "assignment.BasicAssignment:65"
       ],
       "objc": [
         "assignment.BasicAssignment:38"
@@ -324,51 +499,103 @@
     "method": {
       "getArray()": {
         "return": [
-          "assignment.BasicAssignment:83",
-          "assignment.BasicAssignment2:47",
-          "assignment.BasicAssignment2:66",
+          "assignment.BasicAssignment:56",
+          "assignment.BasicAssignment2:19",
+          "assignment.BasicAssignment2:112",
+          "assignment.BasicAssignment2:135",
+          "assignment.BasicAssignment2:113",
+          "assignment.BasicAssignment2:125",
+          "assignment.BasicAssignment2:136",
+          "assignment.BasicAssignment:18",
+          "assignment.BasicAssignment:29",
+          "assignment.BasicAssignment2:49",
+          "assignment.BasicAssignment2:46",
+          "assignment.BasicAssignment2:44",
+          "assignment.BasicAssignment2:45",
           "assignment.BasicAssignment2:20",
-          "assignment.BasicAssignment2:86",
-          "assignment.BasicAssignment2:43"
+          "assignment.BasicAssignment2:75",
+          "assignment.BasicAssignment2:98",
+          "assignment.BasicAssignment2:74",
+          "assignment.BasicAssignment2:50",
+          "assignment.BasicAssignment:83",
+          "assignment.BasicAssignment:50",
+          "assignment.BasicAssignment:65"
         ]
       },
       "getA()": {
         "return": [
           "assignment.BasicAssignment:56",
-          "assignment.BasicAssignment2:85",
           "assignment.BasicAssignment2:19",
+          "assignment.BasicAssignment2:112",
+          "assignment.BasicAssignment2:135",
+          "assignment.BasicAssignment2:113",
+          "assignment.BasicAssignment2:125",
+          "assignment.BasicAssignment2:136",
           "assignment.BasicAssignment:18",
           "assignment.BasicAssignment:29",
+          "assignment.BasicAssignment2:49",
           "assignment.BasicAssignment2:46",
+          "assignment.BasicAssignment2:44",
+          "assignment.BasicAssignment2:45",
+          "assignment.BasicAssignment2:20",
+          "assignment.BasicAssignment2:75",
+          "assignment.BasicAssignment2:98",
+          "assignment.BasicAssignment2:74",
+          "assignment.BasicAssignment2:50",
+          "assignment.BasicAssignment:83",
           "assignment.BasicAssignment:50",
-          "assignment.BasicAssignment2:42",
-          "assignment.BasicAssignment:65",
-          "assignment.BasicAssignment2:65"
+          "assignment.BasicAssignment:65"
         ]
       },
       "setArray(basic.ObjectA[])": {
         "array": [
-          "assignment.BasicAssignment:83",
-          "assignment.BasicAssignment2:47",
-          "assignment.BasicAssignment2:66",
-          "assignment.BasicAssignment2:86",
+          "assignment.BasicAssignment:56",
+          "assignment.BasicAssignment2:19",
+          "assignment.BasicAssignment2:112",
+          "assignment.BasicAssignment2:113",
+          "assignment.BasicAssignment2:135",
+          "assignment.BasicAssignment2:136",
+          "assignment.BasicAssignment2:125",
+          "assignment.BasicAssignment:18",
+          "assignment.BasicAssignment:29",
+          "assignment.BasicAssignment2:49",
+          "assignment.BasicAssignment2:46",
+          "assignment.BasicAssignment2:44",
+          "assignment.BasicAssignment2:45",
           "assignment.BasicAssignment2:20",
-          "assignment.BasicAssignment2:43"
+          "assignment.BasicAssignment2:75",
+          "assignment.BasicAssignment2:98",
+          "assignment.BasicAssignment2:74",
+          "assignment.BasicAssignment2:50",
+          "assignment.BasicAssignment:83",
+          "assignment.BasicAssignment:50",
+          "assignment.BasicAssignment:65"
         ],
         "return": []
       },
       "setA(basic.ObjectA)": {
         "objA": [
           "assignment.BasicAssignment:56",
-          "assignment.BasicAssignment2:85",
           "assignment.BasicAssignment2:19",
+          "assignment.BasicAssignment2:112",
+          "assignment.BasicAssignment2:135",
+          "assignment.BasicAssignment2:113",
+          "assignment.BasicAssignment2:125",
+          "assignment.BasicAssignment2:136",
           "assignment.BasicAssignment:18",
           "assignment.BasicAssignment:29",
+          "assignment.BasicAssignment2:49",
           "assignment.BasicAssignment2:46",
+          "assignment.BasicAssignment2:44",
+          "assignment.BasicAssignment2:45",
+          "assignment.BasicAssignment2:20",
+          "assignment.BasicAssignment2:75",
+          "assignment.BasicAssignment2:98",
+          "assignment.BasicAssignment2:74",
+          "assignment.BasicAssignment2:50",
+          "assignment.BasicAssignment:83",
           "assignment.BasicAssignment:50",
-          "assignment.BasicAssignment2:42",
-          "assignment.BasicAssignment:65",
-          "assignment.BasicAssignment2:65"
+          "assignment.BasicAssignment:65"
         ],
         "return": []
       }

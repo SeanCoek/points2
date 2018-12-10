@@ -1,5 +1,8 @@
 package com.zxl;
 
+import assignment.BasicAssignment2;
+import basic.ObjectA;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.zxl.analyzer.Points2Analyzer;
 import com.zxl.utils.Utils;
 import org.junit.Assert;
@@ -208,36 +211,47 @@ public class PointerBenchTest {
         // assignment : "new" operation
         Assert.assertTrue(locA.contains("assignment.BasicAssignment2:38"));
         Assert.assertTrue(locArr.contains("assignment.BasicAssignment2:39"));
-        Assert.assertTrue(paramA.contains("assignment.BasicAssignment2:40"));
-        Assert.assertTrue(paramArr.contains("assignment.BasicAssignment2:41"));
-        Assert.assertTrue(fieldF3.contains("assignment.BasicAssignment2:42"));
-        Assert.assertTrue(fieldArray.contains("assignment.BasicAssignment2:43"));
+        Assert.assertTrue(locArr.contains("assignment.BasicAssignment2:40"));
+        Assert.assertTrue(paramA.contains("assignment.BasicAssignment2:41"));
+        Assert.assertTrue(paramArr.contains("assignment.BasicAssignment2:42"));
+        Assert.assertTrue(paramArr.contains("assignment.BasicAssignment2:43"));
+        Assert.assertTrue(fieldF3.contains("assignment.BasicAssignment2:44"));
+        Assert.assertTrue(fieldArray.contains("assignment.BasicAssignment2:45"));
 
         // assignment : local var
         Set locA2 = commonAssignMethod.get("locA2");
         Set locArr2 = commonAssignMethod.get("locArr2");
         Assert.assertTrue(locA.containsAll(locA2));
         Assert.assertTrue(locArr.containsAll(locArr2));
+        Assert.assertTrue(locArr.containsAll(locA2));
         Assert.assertTrue((paramA.containsAll(locA2)));
         Assert.assertTrue(paramArr.containsAll(locArr2));
+        Assert.assertTrue(paramArr.containsAll(locA2));
         Assert.assertTrue(fieldF3.containsAll(locA2));
         Assert.assertTrue(fieldArray.containsAll(locArr2));
+        Assert.assertTrue(fieldArray.containsAll(locA2));
+
 
         // assignment : field
         Assert.assertTrue(locA.containsAll(fieldF3));
         Assert.assertTrue(locArr.containsAll(fieldArray));
+        Assert.assertTrue(locArr.containsAll(fieldF3));
         Assert.assertTrue(paramA.containsAll(fieldF3));
         Assert.assertTrue(paramArr.containsAll(fieldArray));
+        Assert.assertTrue(paramArr.containsAll(fieldF3));
 
         // assignment : parameter
         Set paramA2 = commonAssignMethod.get("paramA2");
         Set paramArr2 = commonAssignMethod.get("paramArr2");
         Assert.assertTrue(locA.containsAll(paramA2));
         Assert.assertTrue(locArr.containsAll(paramArr2));
+        Assert.assertTrue(locArr.containsAll(paramA2));
         Assert.assertTrue(paramA.containsAll(paramA2));
         Assert.assertTrue(paramArr.containsAll(paramArr2));
+        Assert.assertTrue(paramArr.containsAll(paramA2));
         Assert.assertTrue(fieldF3.containsAll(paramA2));
         Assert.assertTrue(fieldArray.containsAll(paramArr2));
+        Assert.assertTrue(fieldArray.containsAll(paramA2));
 
         // assignment : method invocation
         Map objBMethods = (Map) allPoints2Map.get("basic.ObjectB").get(KEY_METHOD);
@@ -247,15 +261,30 @@ public class PointerBenchTest {
         Set getArrayReturn = getArrayMethod.get(KEY_RETURN);
         Assert.assertTrue(locA.containsAll(getAReturn));
         Assert.assertTrue(locArr.containsAll(getArrayReturn));
+        Assert.assertTrue(locArr.containsAll(getAReturn));
         Assert.assertTrue(paramA.containsAll(getAReturn));
         Assert.assertTrue(paramArr.containsAll(getArrayReturn));
+        Assert.assertTrue(paramArr.containsAll(getAReturn));
         Assert.assertTrue(fieldF3.containsAll(getAReturn));
         Assert.assertTrue(fieldArray.containsAll(getArrayReturn));
+        Assert.assertTrue(fieldArray.containsAll(getAReturn));
+
+        // assignment : array read
+        Set arrayForAssignment = commonAssignMethod.get("arrayForAssignment");
+        Assert.assertTrue(locA.containsAll(arrayForAssignment));
+        Assert.assertTrue(locArr.containsAll(arrayForAssignment));
+        Assert.assertTrue(paramA.containsAll(arrayForAssignment));
+        Assert.assertTrue(paramArr.containsAll(arrayForAssignment));
+        Assert.assertTrue(fieldF3.containsAll(arrayForAssignment));
+        Assert.assertTrue(fieldArray.containsAll(arrayForAssignment));
+
 
     }
 
     @Test
     public void testArgumentPass() {
+        BasicAssignment2 testClass = new BasicAssignment2();
+        testClass.methodInvocation(new ObjectA(), new ObjectA[]{new ObjectA()});
         Map methodMap = (Map) allPoints2Map.get("assignment.BasicAssignment2").get(KEY_METHOD);
         Map<String, Set> methodInvocationMethod = (Map<String, Set>) methodMap.get("methodInvocation(basic.ObjectA,basic.ObjectA[])");
         Map objBMethods = (Map) allPoints2Map.get("basic.ObjectB").get(KEY_METHOD);
@@ -290,5 +319,9 @@ public class PointerBenchTest {
         Set getArrayReturn = getArrayMethod.get(KEY_RETURN);
         Assert.assertTrue(setAParam.containsAll(getAReturn));
         Assert.assertTrue(setArrayParam.containsAll(getArrayReturn));
+
+        // argument : "new" operation
+        Assert.assertTrue(setAParam.contains("assignment.BasicAssignment2:135"));
+        Assert.assertTrue(setArrayParam.contains("assignment.BasicAssignment2:136"));
     }
 }

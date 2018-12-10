@@ -1,0 +1,136 @@
+{
+  "assignment.BasicAssignment:method:var2call():a": [
+    "basic.ObjectB:method:getA():return"
+  ],
+  "assignment.BasicAssignment:method:arrayAssign():field_arr2": [
+    "basic.ObjectB:field:a_arr"
+  ],
+  "basic.ObjectB:method:getA():return": [
+    "basic.ObjectB:field:f3"
+  ],
+  "basic.ObjectB:field:a_arr": [
+    "assignment.BasicAssignment2:method:commonAssignment(basic.ObjectA,basic.ObjectA,basic.ObjectA[],basic.ObjectA[]):paramArr2",
+    "assignment.BasicAssignment2:method:commonAssignment(basic.ObjectA,basic.ObjectA,basic.ObjectA[],basic.ObjectA[]):locA2",
+    "assignment.BasicAssignment2:method:commonAssignment(basic.ObjectA,basic.ObjectA,basic.ObjectA[],basic.ObjectA[]):arrayForAssignment",
+    "basic.ObjectB:method:getA():return",
+    "basic.ObjectB:field:a_arr",
+    "assignment.BasicAssignment2:method:commonAssignment(basic.ObjectA,basic.ObjectA,basic.ObjectA[],basic.ObjectA[]):paramA2",
+    "basic.ObjectB:method:setArray(basic.ObjectA[]):array",
+    "assignment.BasicAssignment:method:arrayAssign():field_arr",
+    "basic.ObjectB:field:f3",
+    "assignment.BasicAssignment2:method:commonAssignment(basic.ObjectA,basic.ObjectA,basic.ObjectA[],basic.ObjectA[]):locArr2",
+    "basic.ObjectB:method:getArray():return"
+  ],
+  "basic.ObjectA:field:objc": [
+    "assignment.BasicAssignment:method:field2field():c1",
+    "basic.ObjectB:field:objc"
+  ],
+  "basic.ObjectB:method:getArray():return": [
+    "basic.ObjectB:field:a_arr"
+  ],
+  "assignment.BasicAssignment:method:var2field():a": [
+    "basic.ObjectB:field:f3"
+  ],
+  "basic.ObjectB:method:setA(basic.ObjectA):objA": [
+    "assignment.BasicAssignment2:method:methodInvocation(basic.ObjectA,basic.ObjectA[]):locArr",
+    "basic.ObjectB:method:getA():return",
+    "assignment.BasicAssignment2:method:methodInvocation(basic.ObjectA,basic.ObjectA[]):locA",
+    "basic.ObjectB:field:a_arr",
+    "assignment.BasicAssignment:method:var2param():a",
+    "assignment.BasicAssignment2:method:methodInvocation(basic.ObjectA,basic.ObjectA[]):paramA",
+    "basic.ObjectB:field:f3",
+    "assignment.BasicAssignment2:method:methodInvocation(basic.ObjectA,basic.ObjectA[]):paramArr"
+  ],
+  "assignment.BasicAssignment2:method:assignInLocalInitial(basic.ObjectA,basic.ObjectA[]):a3": [
+    "assignment.BasicAssignment2:method:assignInLocalInitial(basic.ObjectA,basic.ObjectA[]):a1"
+  ],
+  "assignment.BasicAssignment2:method:assignInLocalInitial(basic.ObjectA,basic.ObjectA[]):a4": [
+    "assignment.BasicAssignment2:method:assignInLocalInitial(basic.ObjectA,basic.ObjectA[]):a2"
+  ],
+  "assignment.BasicAssignment2:method:assignInLocalInitial(basic.ObjectA,basic.ObjectA[]):a5": [
+    "basic.ObjectB:field:f3"
+  ],
+  "basic.ObjectB:method:setArray(basic.ObjectA[]):array": [
+    "assignment.BasicAssignment2:method:methodInvocation(basic.ObjectA,basic.ObjectA[]):locArr",
+    "basic.ObjectB:field:a_arr",
+    "assignment.BasicAssignment2:method:methodInvocation(basic.ObjectA,basic.ObjectA[]):paramArr",
+    "basic.ObjectB:method:getArray():return"
+  ],
+  "assignment.BasicAssignment2:method:assignInLocalInitial(basic.ObjectA,basic.ObjectA[]):a6": [
+    "basic.ObjectB:field:a_arr"
+  ],
+  "assignment.BasicAssignment2:method:commonAssignment(basic.ObjectA,basic.ObjectA,basic.ObjectA[],basic.ObjectA[]):locA": [
+    "assignment.BasicAssignment2:method:commonAssignment(basic.ObjectA,basic.ObjectA,basic.ObjectA[],basic.ObjectA[]):locA2",
+    "assignment.BasicAssignment2:method:commonAssignment(basic.ObjectA,basic.ObjectA,basic.ObjectA[],basic.ObjectA[]):arrayForAssignment",
+    "basic.ObjectB:method:getA():return",
+    "assignment.BasicAssignment2:method:commonAssignment(basic.ObjectA,basic.ObjectA,basic.ObjectA[],basic.ObjectA[]):paramA2",
+    "basic.ObjectB:field:f3"
+  ],
+  "assignment.BasicAssignment2:method:assignInLocalInitial(basic.ObjectA,basic.ObjectA[]):a7": [
+    "assignment.BasicAssignment2:method:assignInLocalInitial(basic.ObjectA,basic.ObjectA[]):paramA"
+  ],
+  "assignment.BasicAssignment2:method:commonAssignment(basic.ObjectA,basic.ObjectA,basic.ObjectA[],basic.ObjectA[]):locArr": [
+    "assignment.BasicAssignment2:method:commonAssignment(basic.ObjectA,basic.ObjectA,basic.ObjectA[],basic.ObjectA[]):paramArr2",
+    "assignment.BasicAssignment2:method:commonAssignment(basic.ObjectA,basic.ObjectA,basic.ObjectA[],basic.ObjectA[]):locA2",
+    "assignment.BasicAssignment2:method:commonAssignment(basic.ObjectA,basic.ObjectA,basic.ObjectA[],basic.ObjectA[]):arrayForAssignment",
+    "basic.ObjectB:method:getA():return",
+    "basic.ObjectB:field:a_arr",
+    "assignment.BasicAssignment2:method:commonAssignment(basic.ObjectA,basic.ObjectA,basic.ObjectA[],basic.ObjectA[]):paramA2",
+    "basic.ObjectB:field:f3",
+    "assignment.BasicAssignment2:method:commonAssignment(basic.ObjectA,basic.ObjectA,basic.ObjectA[],basic.ObjectA[]):locArr2",
+    "basic.ObjectB:method:getArray():return"
+  ],
+  "assignment.BasicAssignment2:method:assignInLocalInitial(basic.ObjectA,basic.ObjectA[]):a8": [
+    "assignment.BasicAssignment2:method:assignInLocalInitial(basic.ObjectA,basic.ObjectA[]):paramArr"
+  ],
+  "assignment.BasicAssignment2:method:assignInLocalInitial(basic.ObjectA,basic.ObjectA[]):a9": [
+    "basic.ObjectB:method:getA():return"
+  ],
+  "basic.ObjectB:field:objc": [
+    "assignment.BasicAssignment:method:field2field():c2"
+  ],
+  "assignment.BasicAssignment2:method:commonAssignment(basic.ObjectA,basic.ObjectA,basic.ObjectA[],basic.ObjectA[]):paramA": [
+    "assignment.BasicAssignment2:method:commonAssignment(basic.ObjectA,basic.ObjectA,basic.ObjectA[],basic.ObjectA[]):locA2",
+    "assignment.BasicAssignment2:method:commonAssignment(basic.ObjectA,basic.ObjectA,basic.ObjectA[],basic.ObjectA[]):arrayForAssignment",
+    "basic.ObjectB:method:getA():return",
+    "assignment.BasicAssignment2:method:commonAssignment(basic.ObjectA,basic.ObjectA,basic.ObjectA[],basic.ObjectA[]):paramA2",
+    "basic.ObjectB:field:f3"
+  ],
+  "assignment.BasicAssignment:method:arrayAssign():loc_a": [
+    "assignment.BasicAssignment:method:arrayAssign():loc_arr"
+  ],
+  "assignment.BasicAssignment:method:arrayAssign():loc_arr2": [
+    "assignment.BasicAssignment:method:arrayAssign():loc_arr"
+  ],
+  "assignment.BasicAssignment2:method:commonAssignment(basic.ObjectA,basic.ObjectA,basic.ObjectA[],basic.ObjectA[]):paramArr": [
+    "assignment.BasicAssignment2:method:commonAssignment(basic.ObjectA,basic.ObjectA,basic.ObjectA[],basic.ObjectA[]):paramArr2",
+    "assignment.BasicAssignment2:method:commonAssignment(basic.ObjectA,basic.ObjectA,basic.ObjectA[],basic.ObjectA[]):locA2",
+    "assignment.BasicAssignment2:method:commonAssignment(basic.ObjectA,basic.ObjectA,basic.ObjectA[],basic.ObjectA[]):arrayForAssignment",
+    "basic.ObjectB:method:getA():return",
+    "basic.ObjectB:field:a_arr",
+    "assignment.BasicAssignment2:method:commonAssignment(basic.ObjectA,basic.ObjectA,basic.ObjectA[],basic.ObjectA[]):paramA2",
+    "basic.ObjectB:field:f3",
+    "assignment.BasicAssignment2:method:commonAssignment(basic.ObjectA,basic.ObjectA,basic.ObjectA[],basic.ObjectA[]):locArr2",
+    "basic.ObjectB:method:getArray():return"
+  ],
+  "assignment.BasicAssignment:method:arrayAssign():loc_arr": [
+    "assignment.BasicAssignment:method:arrayAssign():loc_a"
+  ],
+  "assignment.BasicAssignment2:method:assignInLocalInitial(basic.ObjectA,basic.ObjectA[]):a10": [
+    "basic.ObjectB:method:getArray():return"
+  ],
+  "assignment.BasicAssignment:method:var2var():a1": [
+    "assignment.BasicAssignment:method:var2var():a2"
+  ],
+  "basic.ObjectB:field:f3": [
+    "assignment.BasicAssignment:method:field2var():a",
+    "assignment.BasicAssignment2:method:commonAssignment(basic.ObjectA,basic.ObjectA,basic.ObjectA[],basic.ObjectA[]):locA2",
+    "assignment.BasicAssignment2:method:commonAssignment(basic.ObjectA,basic.ObjectA,basic.ObjectA[],basic.ObjectA[]):arrayForAssignment",
+    "basic.ObjectB:method:getA():return",
+    "assignment.BasicAssignment:method:field2param():a",
+    "assignment.BasicAssignment:method:call2param():a",
+    "basic.ObjectB:method:setA(basic.ObjectA):objA",
+    "assignment.BasicAssignment2:method:commonAssignment(basic.ObjectA,basic.ObjectA,basic.ObjectA[],basic.ObjectA[]):paramA2",
+    "basic.ObjectB:field:f3"
+  ]
+}
